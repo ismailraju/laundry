@@ -1,0 +1,109 @@
+/*<style>*/
+
+#middleclm{
+    width: 5px;
+}
+
+
+.gap{
+	width: 5px;
+}
+
+
+
+
+fieldset { 
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+}
+
+#newcustomertable{
+
+	/*vertical-align: text-top;*/
+    
+}
+
+
+
+#standingtable input{
+/*
+width: 150px;*/
+
+}
+#AmountFix{
+
+width: 150px;
+    
+}
+/*#invoicetable input{
+
+width: 150px;
+
+}
+*/
+
+#detailstable textarea{
+
+width: 450px;
+height: 80px;
+
+}
+
+
+
+
+.radio{
+
+    float: left;
+}
+
+
+///////////////////////////////newsupplier modal./////////
+
+
+#newsuppliermodal input{
+
+width: 300px;
+
+}
+
+#newsuppliermodal #SupplierName{
+
+width: 250px;
+
+}
+
+#newsuppliermodal label{
+/*float: right;*/
+}
+
+
+
+///////////////////////////////newpurchase master modal./////////
+
+#newpurchasemastermodal #Qty{
+    width: 100px;
+}
+
+
+
+#newpurchasemastermodal #SupplierId,#newpurchasemastermodal  #ItemId{
+    width: 100px;
+}
+
+
+#newpurchasemastermodal #PurchaseDate,#newpurchasemastermodal  #EstimateDeliveryDate{
+    width: 100px;
+}
+
+
+
+
+
+/*</style>*/

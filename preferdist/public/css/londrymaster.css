@@ -1,0 +1,65 @@
+
+
+
+li{
+	cursor:pointer;
+}
+
+#navigationbar{
+
+margin:0px;
+
+}
+
+#navigationbar a{
+background-color: black;
+color: white;
+
+}
+#navigationbar a:hover{
+background-color: green;
+
+}
+
+
+#leftitems{
+
+/*font-size: 8px;*/
+ /*font-weight: bold;*/
+
+
+
+}
+
+#leftitems a:hover{
+
+background-color: green;
+/*color: red;*/
+}
+
+#leftitems a{
+
+background-color: black;
+color: white;
+}
+
+
+
+#leftitems .selectedicon{
+
+background-color: green;
+
+}
+
+
+#tabs-1{
+
+	padding:5px;
+
+}
+
+
+footer{
+	background-color: black;
+	color: white;
+}

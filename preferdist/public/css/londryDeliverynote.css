@@ -1,0 +1,54 @@
+#deliverynotedate{
+	position: relative; 
+	z-index: 10;
+}
+
+.ssp_btn{
+
+	width: 70px;
+}
+
+
+#deliverynotetotaldiv,#stockinfodiv,#weekdaynamesdiv{
+
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.inputsizecls{
+
+	width: 80px;
+}
+
+
+#tabs-1 #missingdeliverytextarea,#tabs-1 #missingpaymenttextarea{
+
+
+	color:red;
+	width:200px;
+	height: 120px;
+
+}
+
+.red{
+
+	background-color: red;
+}
+
+#deliverynotemsgmodal{
+
+	/*width: 90%;*/
+}
+
+#deliverynotetable tbody td{
+
+	height:26px;
+	width: 70px;
+	padding: 5px 0px 5px 0px;
+}
+
+ #deliverynotetable tbody td .changeLocation{
+
+	width: 70px;
+} 

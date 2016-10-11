@@ -1,6 +1,6 @@
 #Laundry Management MySQL database backup
 
-# Generated: Monday 10. October 2016 19:47 UTC  Laundry Management
+# Generated: Tuesday 11. October 2016 20:13 UTC  Laundry Management
 # --------------------------------------------------------
 
 SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
@@ -471,7 +471,7 @@ CREATE TABLE `invoicedetails` (
   KEY `InvoicesId` (`InvoicesId`),
   KEY `ItemId` (`ItemId`),
   KEY `ProductsId` (`ProductsId`)
-) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=latin1;
 
 
 
@@ -638,7 +638,19 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('195','65','11','18',NULL,'86','6','254','184','',NULL,NULL,'no');
 INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsId`,`OrderNo`,`Quantity`,`Extra`,`Damage`,`PricePerUnit`,`PaymentTerms`,`Discount`,`Datetime`,`Flag`) VALUES
 ('196','65','13','20',NULL,'515','786','0','2602','',NULL,NULL,'no'),
-('197','65','14','21',NULL,'999','528','26','1499292','',NULL,NULL,'no');
+('197','65','14','21',NULL,'999','528','26','1499292','',NULL,NULL,'no'),
+('198','66','3','32',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('199','66','12','33',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('200','66','6','34',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('201','66','11','35',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('202','66','13','36',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('203','66','14','37',NULL,'22','22','22','88','',NULL,NULL,'no'),
+('204','67','3','22',NULL,'22','2','2','48','',NULL,NULL,'no'),
+('205','68','3','22',NULL,'1','1','1','4','',NULL,NULL,'no'),
+('206','69','3','22',NULL,'2','22','0','48','',NULL,NULL,'no'),
+('207','70','3','22',NULL,'2','2','2','8','',NULL,NULL,'no'),
+('208','71','3','22',NULL,'3','0','0','6','',NULL,NULL,'no'),
+('209','72','3','22',NULL,'33','0','0','66','',NULL,NULL,'no');
 
 
 
@@ -713,7 +725,7 @@ CREATE TABLE `invoices` (
   PRIMARY KEY (`InvoicesId`),
   KEY `CustomersId` (`CustomersId`),
   KEY `CompaniesId` (`CompaniesId`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
 
 
@@ -782,7 +794,14 @@ INSERT INTO `invoices`(`InvoicesId`,`CustomersId`,`CompaniesId`,`InvoiceDate`,`N
 ('62','92','1','2016-10-02','','yes','18','18',NULL),
 ('63','25','1','2016-10-03','','yes','95','95',NULL),
 ('64','25','1','2016-10-08','','yes','853','853',NULL),
-('65','25','1','2016-10-08','','yes','1660792','1660792',NULL);
+('65','25','1','2016-10-08','','yes','1660792','1660792',NULL),
+('66','63','1','2016-10-10','','yes','528','528',NULL),
+('67','26','1','2016-10-12','','yes','48','48',NULL),
+('68','26','1','2016-10-12','','yes','4','4',NULL),
+('69','26','1','2016-10-12','','yes','48','48',NULL),
+('70','26','1','2016-10-12','','yes','8','8',NULL),
+('71','26','1','2016-10-12','','yes','6','6',NULL),
+('72','26','1','2016-10-12','','yes','66','66',NULL);
 
 
 
@@ -1115,7 +1134,7 @@ CREATE TABLE `nominal` (
   `NominalCode` text,
   `CodeDescription` text,
   PRIMARY KEY (`NominalId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 
 
@@ -1128,7 +1147,8 @@ CREATE TABLE `nominal` (
 
 INSERT INTO `nominal`(`NominalId`,`NominalCode`,`CodeDescription`) VALUES
 ('1','5556','car'),
-('2','5461','fuel');
+('2','5461','fuel'),
+('3','5588','VISIT');
 
 
 
@@ -1475,9 +1495,7 @@ CREATE TABLE `supplier` (
 INSERT INTO `supplier`(`SupplierId`,`CompanyId`,`SupplierName`,`Address`,`City`,`Country`,`PostCode`,`ContactPerson`,`PhoneNo`,`FaxNumber`,`Email`,`Notes`,`Active`,`Creditlimit`,`DueSettlement`,`TaxId`,`NominalId`,`VatNo`) VALUES
 ('1','1','garmenS','kachukhet','dhaka','bd','1902','kalam','0184575955','nkoun','kalam@gmail.com','hamum','yes','2000',NULL,'1','2','132'),
 ('2','1','RFL','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','1',''),
-('5','1','Plastic BD','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','no','500',NULL,'2','1',''),
-('7','1','Plastic BD','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','no','500',NULL,'2','1',''),
-('10','1','Plastic BD','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','1','');
+('5','1','Plastic BD','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','1','');
 
 
 

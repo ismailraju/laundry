@@ -5,6 +5,7 @@
 	<div class="form-inline">
 
 		<div class="col-sm-8">
+			<a class="btn btn-primary" id="statementbycustomerCreateNewBtn">Create New</a>
 
 			<select id="statementbycustomercustomeroption" class="form-control"></select>
 			<label id="">Start Date:</label>

@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 //var statementbycustomertable = $('#statementbycustomertable').DataTable(dataObject);
 //$('#statementbycustomertable').empty();
 
-$(document).on("click", "#statementbycustomerGenarateBtn", function(){
+$(document).on("click", "#Statment_By_Customer,#statementbycustomerGenarateBtn", function(){
 
 
 		var statementbycustomerdateStart=$("#tabs-4 #statementbycustomerdateStart").datepicker( "getDate" );
@@ -117,6 +117,7 @@ $(document).on("click", "#statementbycustomerGenarateBtn", function(){
 			    console.log(">>done<<");
 
 			    //alert(JSON.stringify(quantitylistarray));
+			    $('#tabs-4 #statementbycustomercustomeroption').prop("disabled", true);
 
 			   
 		})
@@ -141,6 +142,20 @@ $(document).on("click", "#statementbycustomerGenarateBtn", function(){
 
 
 
+
+
+
+
+
+$(document).on("click", "#tabs-4  #statementbycustomerCreateNewBtn", function(){
+
+
+		$('#tabs-4 #statementbycustomercustomeroption').prop("disabled", false);
+
+		statementbycustomertable.clear().draw();
+		//$('#deliverynotenumberinput').val("");
+
+});
 
 
 

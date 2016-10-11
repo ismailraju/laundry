@@ -4,9 +4,14 @@
 	
 	<div class="form-inline">
 
-		<div class="col-sm-8">
+		<div class="col-sm-4">
+
+			<a class="btn btn-primary" id="previousdeliverynoteCreateNewbtn">Create New</a>
 
 			<select id="previousdeliverycustomeroption" class="form-control"></select>
+
+		</div>
+		<div class="col-sm-4">
 			<label id="">Past:</label>
 			<select id="pastdaynumber" class="form-control">
 				<option value="7">7</option>
@@ -26,6 +31,7 @@
 			<input id="deliverynotenumberinput" class="form-control"/>
 			<a class="btn btn-primary" id="previousdeliverynotepdfbtn" >Print</a>
 			<a class="btn btn-primary" id="previousdeliverynotemodifybtn">Modify</a>
+			<a class="btn btn-primary" id="previousdeliverynotedeletebtn">Delete</a>
 
 		</div>	
 

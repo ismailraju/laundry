@@ -188,11 +188,11 @@
 		          		
 						          		<div class="row form-inline">
 						          			<div class="col-sm-6 form-inline">
-						          				<label for="HotTowelPay">HotTowelPay</label><input type="radio" id="HotTowelPay" class="radio" name="HotTowelFree" value="yes" checked>
+						          				<label for="HotTowelPay">HotTowelPay</label><input type="radio" id="HotTowelPay" class="radio" name="HotTowelFree" value="no" checked>
 						          			</div>
 						          			<div class="col-sm-6 form-inline">
 						          				
-						          				<label for="HotTowelFree">HotTowelFree</label><input type="radio" id="HotTowelFree" class="radio" name="HotTowelFree" value="no">
+						          				<label for="HotTowelFree">HotTowelFree</label><input type="radio" id="HotTowelFree" class="radio" name="HotTowelFree" value="yes">
 						          			</div>
 
 						          		</div>

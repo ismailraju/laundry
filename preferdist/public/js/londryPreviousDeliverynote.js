@@ -140,6 +140,7 @@ $.ajax({
 				function( response ) {
 
 				    console.log(">>done<<");
+				    $("#tabs-2 #previousdeliverycustomeroption").prop("disabled", true );
 
 
 				   
@@ -323,6 +324,97 @@ $('#tabs-2 #previousdeliverynotemodifybtn').on( 'click', '',function(){
 
 
 
+
+
+
+
+
+$('#tabs-2 #previousdeliverynotedeletebtn').on( 'click', '',function(){
+
+ 	 var data=previousdeliverynotetable.rows('.selected').data()[0];
+
+ 	 if(data!=null){
+
+   // $("#modifypreviousdeliverynotemodal #PreviousDeliveryNoteDate").val(data.InvoiceDate);
+   // $("#modifypreviousdeliverynotemodal").val(data.InvoicesId);
+    
+ 	 previousdeliverynotedeletecommand( data.InvoicesId);
+
+
+
+
+ 	 }else if (data==null) {
+
+ 	 	alert("Select a row");
+ 	 }
+
+
+
+});
+
+
+
+
+function previousdeliverynotedeletecommand(InvoicesId ){
+		//alert(JSON.stringify(InvoicesId));
+
+		$.ajax({
+			url:"previous_delivery_note_delete_command",
+			type:'POST',
+			dataType: "json",
+			//dataType: "Array",
+			data:{
+
+				"InvoicesId":InvoicesId
+
+			},
+			success:function(response) {
+					//alert(JSON.stringify(response));
+					//console.log	(JSON.stringify(response));
+
+					if(InvoicesId==response){
+						toastr.success('Successfully deleted \n');
+
+					}
+						
+						
+
+					}
+
+			})
+			.done(
+				function( response ) {
+
+				    console.log(">>done<<");
+
+					customeridd=parseInt($("#tabs-2 #previousdeliverycustomeroption option:selected").attr("value"));
+		 			lastnumberofdays=parseInt($("#tabs-2 #pastdaynumber option:selected").attr("value"));
+					previousdeliverynotelisttableconfigure(customeridd,lastnumberofdays);
+
+				   
+			})
+		  
+		  	.fail(
+		  			function( xhr, status, errorThrown ) {
+					    alert( "Sorry, there was a problem!" );
+					    console.log( "Error: " + errorThrown );
+					    console.log( "Status: " + status );
+					    console.dir( xhr );
+			})
+		  
+		  	.always(
+		  			function( xhr, status ) {
+		  				console.log(">>always<<");
+		  	
+			});
+
+
+
+
+
+
+
+}
 
 
 
@@ -877,6 +969,7 @@ function previousdeliverynotepdf(invoicedata,itemsdata,customersinfo){
 
 		if (map) {
 		    mapForm.submit();
+		    mapForm.remove();
 		} else {
 		    alert('You must allow popups for this map to work.');
 		}
@@ -1017,6 +1110,29 @@ $("#previousdeliverynotepdfbtn").on("click","",function(){
 
 
 });
+
+
+
+
+
+
+
+
+$(document).on("click", "#tabs-2  #previousdeliverynoteCreateNewbtn", function(){
+
+
+		$('#tabs-2 #previousdeliverycustomeroption').prop("disabled", false);
+
+		previousdeliverynotetable.clear().draw();
+		$('#deliverynotenumberinput').val("");
+
+});
+
+
+
+
+
+
 
 
 

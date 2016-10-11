@@ -141,6 +141,9 @@ Route::post('/itemsOption', 'QueryController@itemsOption');
 Route::post('/customersOption', 'QueryController@customersOption');
 
 
+Route::post('/previous_delivery_note_delete_command', 'QueryController@previous_delivery_note_delete_command');
+
+
 
 Route::get('/customerslist', 'QueryController@customerslist');
 Route::post('/customerslist', 'QueryController@customerslist');
@@ -244,6 +247,13 @@ Route::post('/newtaxlisttable', 'QueryController@newtaxlisttable');
 Route::post('/addnewtax1', 'QueryController@addnewtax1');
 Route::post('/updatenewtaxtable', 'QueryController@updatenewtaxtable');
 Route::post('/deletenewtaxtable', 'QueryController@deletenewtaxtable');
+
+Route::post('/newnominallisttable', 'QueryController@newnominallisttable');
+Route::post('/addnewnominal', 'QueryController@addnewnominal');
+Route::post('/updatenewnominaltable', 'QueryController@updatenewnominaltable');
+Route::post('/deletenewnominaltable', 'QueryController@deletenewnominaltable');
+
+
 
 Route::post('/Restore_Backup_Database', 'QueryController@Restore_Backup_Database');
 

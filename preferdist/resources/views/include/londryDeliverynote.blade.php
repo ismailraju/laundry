@@ -1,9 +1,10 @@
 <div class="row">
 
 	<div class="col-sm-1">
-		<div class="row"><!-- <a class="btn btn-primary">Create</a> --></div>
+		<div class="row"><a class="btn btn-primary"  id="createNewBtn">Create New</a></div>
 
 		<div class="row" id="weekdaynamesdiv"><span id="weekdaynames"></span></div>	
+
 
 	</div>
 

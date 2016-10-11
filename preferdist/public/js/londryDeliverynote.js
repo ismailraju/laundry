@@ -6,7 +6,9 @@
 jQuery(document).ready(function($) {
 
 
-var percent=30;
+var percent=20;
+var percentMin=20;
+var percentMax=20;
 
 
 function totalcountfromarray(){
@@ -398,6 +400,10 @@ function customerlist(){
 				customeridd=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
 				//tableconfigure(customeridd);
 
+				$("#tabs-1 #customeroption").select2();
+				$("#tabs-2 #previousdeliverycustomeroption").select2();
+				$("#tabs-4 #statementbycustomercustomeroption").select2();
+
 				}
 
 		})
@@ -566,6 +572,10 @@ function productlistandpredeliveryallbycustomerid(CustomersId){
 			    console.log(">>done<<");
 
 			   // alert(JSON.stringify(quantitylistarray));
+			   $('#deliverynotetotal').text("0");
+			   $("#tabs-1 #stkItemName").html("");
+			   $("#tabs-1 #stkItemNumber").html("");
+			   $("#tabs-1 #customeroption").prop("disabled", true );
 
 			   
 		})
@@ -947,8 +957,10 @@ $('#deliverynotetable tbody').on("change", ".changeLocation", function(){
 
 	if(isNaN(parseInt( $(this).val() ))){
 
-		alert("Give Correct Input!!");
-		$(this).parent("td").empty().text("");
+		//alert("Give Correct Input!!");
+		toastr.error("Give Correct Input!!");
+		//$(this).parent("td").empty().text("");
+		$(this).parent("td").removeClass("red").removeClass("green").empty().text("");
 	    $('#deliverynotetable').removeClass("editing");
 
 	}else{
@@ -990,15 +1002,21 @@ if(val>-1){
 	$( "#deliverynotetable tbody tr:nth-child("+(row+1)+") td:nth-child("+(clm_total+1)+")" ).text( "£"+total );
 
 
-if (	parseFloat(val)	>=	parseFloat( ((data.quantity1)*percent)/100  )	) {
+	if (	parseFloat(val)	<=	parseFloat( ((data.quantity1)*percentMin)/100  )	) {
+		//alert("min");
+		
+		$(this).parent("td").removeClass("green").addClass("red").empty().text(parseInt(val));
 
-	$(this).parent("td").removeClass("red").empty().text(parseInt(val));
-	//$(this).parent("td").addClass("red").empty().text(parseInt(val));
+	}else if(	parseFloat(val)	>=	parseFloat( ( ((data.quantity1)*percentMax)/100 )+parseFloat(data.quantity1) )	) {
+		//alert("max");
+		
+		$(this).parent("td").removeClass("red").addClass("green").empty().text(parseInt(val));
+	}else{
+		//alert("mid");
+		$(this).parent("td").removeClass("red").removeClass("green").empty().text(parseInt(val));
 
-}else{
-	$(this).parent("td").addClass("red").empty().text(parseInt(val));
+	}
 
-}
     $('#deliverynotetable').removeClass("editing");
     $('#deliverynotetotal').text(totalcountfromarray());
 
@@ -1185,7 +1203,7 @@ $(document).on("click", "#deliverynotesavebtn", function(){
 							//message_modal(customeridd);
 							deliverynotemsgmodalupdate(customeridd);
 
-							
+							//$('#deliverynotetotal').text("0");
 
 
 						   
@@ -1232,6 +1250,21 @@ $(document).on("click", "#deliverynoteselectbtn", function(){
 		//message_modal(customeridd);
 		deliverynotemsgmodalupdate(customeridd);
 
+		//$("#tabs-1 #customeroption").prop("disabled", true );
+		//$('#tabs-1 #customeroption').select2("enable",false);
+
+});
+
+
+
+$(document).on("click", "#tabs-1  #createNewBtn", function(){
+
+
+		$('#tabs-1 #customeroption').prop("disabled", false);
+		//$('#tabs-1 #customeroption').select2("enable",true);
+
+		deliverynotetable.clear().draw();
+		$('#deliverynotetotal').text("0");
 
 });
 
@@ -1348,6 +1381,7 @@ function deliverynotepdf(customersinfo){
 //return;
 	 var mapForm = document.createElement("form");
 	   // mapForm.target = "Map";
+	   	mapForm.class = "deleteKorteHobe";
 	   	mapForm.type = "hidden";
 	    mapForm.target = "Map";
 	    mapForm.method = "GET"; // or "post" if appropriate
@@ -1382,6 +1416,7 @@ function deliverynotepdf(customersinfo){
 
 		if (map) {
 		    mapForm.submit();
+		    mapForm.remove();
 		} else {
 		    alert('You must allow popups for this map to work.');
 		}

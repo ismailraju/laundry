@@ -25,6 +25,8 @@
 
   <link rel="stylesheet" href="{{ URL::to('src/toastr-master/build/toastr.min.css')}}">
 
+  <link rel="stylesheet" href="{{ URL::to('src/select2-4.0.3/dist/css/select2.min.css')}}">
+
 
 
 
@@ -78,6 +80,8 @@
   <script src="{{ URL::to('src/DataTables-1.10.12/extensions/Scroller/js/dataTables.scroller.min.js')}}"></script>
   <script src="{{ URL::to('src/toastr-master/build/toastr.min.js')}}"></script>
   <script src="{{ URL::to('src/moment-develop/moment-develop/min/moment.min.js')}}"></script>
+
+  <script src="{{ URL::to('src/select2-4.0.3/dist/js/select2.min.js')}}"></script>
 
 
  <!--  <script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>   
@@ -155,6 +159,7 @@
       <li class="dropdown"><a  href="#">Accounts</a>
         <ul class="dropdown-menu">
           <li><a id="taxmasterbtn" >Tax Master</a></li>
+          <li><a id="nominalmasterbtn" >Nominal Master</a></li>
           
         </ul>
       </li>
@@ -223,7 +228,7 @@
           <li><a class="list-group-item selectedicon" href="#tabs-1">Delivery Note</a></li>
           <li><a class="list-group-item" id="PreviousDeliveryNote" href="#tabs-2">Previous Delivery Note</a></li>
           <li><a class="list-group-item" href="#tabs-3">Invoice</a></li>
-          <li><a class="list-group-item" href="#tabs-4">Statment By Customer</a></li>
+          <li><a class="list-group-item" id="Statment_By_Customer"  href="#tabs-4">Statment By Customer</a></li>
           <li><a class="list-group-item" href="#tabs-5">Accounts Receivable</a></li>
           <li><a class="list-group-item" href="#tabs-6">Accounts Payable</a></li>
         </ul>

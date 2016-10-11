@@ -147,12 +147,15 @@ class QueryController extends Controller
 		//$customers = DB::select('select * from customers');
 		//return json_encode($customers);
 
-
+		$HotTowelItemName="Hot Towel";
 
     	$formdatas = $_POST['formdatas'];
 		    parse_str($formdatas);
-		    //return $CustomersId;
-		     	
+
+		    /////////////////
+
+
+		  ///////////////////////   	
 		     	echo $CustomerName;
 				echo $Address;
 				echo $City;
@@ -219,6 +222,33 @@ class QueryController extends Controller
 
 
 
+				    	$item_id= DB::table('item')
+							->select('*')
+							->where('ItemName', "$HotTowelItemName")
+							->get();
+
+						$ItemId_=$item_id[0]->ItemId;
+						$ItemName_=$item_id[0]->ItemName;
+						$AveragePrice_=$item_id[0]->AveragePrice;
+
+
+  						if($HotTowelFree=="yes"){		    	
+  							$AveragePrice_=0;
+
+					    }elseif ($HotTowelFree=="no") {
+
+					    }
+
+						DB::table('products')
+									->insert([
+											'ProductName'	=> "$ItemName_",
+											'Price'			=> "$AveragePrice_",
+											'CustomersId'	=> "$insert_id",
+											'Active'		=> "yes",
+											'ItemId'		=> "$ItemId_"
+							
+					    			    	 ]);
+
 
 			}else{
 
@@ -256,6 +286,40 @@ class QueryController extends Controller
 				           $insert_id= $CustomersId;
 
 
+
+							if(($week_day_change_or_not[0]->HotTowelFree)!=$HotTowelFree){
+
+
+									$AveragePrice_=0;
+
+			  						if($HotTowelFree=="yes"){		    	
+			  							$AveragePrice_=0;
+
+								    }elseif ($HotTowelFree=="no") {
+
+									    $item_id= DB::table('item')
+											->select('*')
+											->where('ItemName', "$HotTowelItemName")
+											->get();
+
+										$ItemId_=$item_id[0]->ItemId;
+										$ItemName_=$item_id[0]->ItemName;
+										$AveragePrice_=$item_id[0]->AveragePrice;
+
+								    }
+
+
+									DB::table('products')
+							            ->where('CustomersId', "$CustomersId")
+							            ->where('ProductName', "$HotTowelItemName")
+							            ->update([
+													'Price'	 => "$AveragePrice_"
+												]);
+
+
+
+
+								}
 
 
 
@@ -2328,6 +2392,22 @@ return json_encode($customers);
 
 
 
+   public function newnominallisttable(){
+
+
+
+		$nominal = DB::table('nominal')
+					->select('*')
+					->get();
+
+		return json_encode($nominal);
+
+      
+   }
+
+
+
+
    public function addnewtax1(){
 
    		$TaxCode = 		$_POST['TaxCode'];
@@ -2343,6 +2423,26 @@ return json_encode($customers);
 
 
 		return json_encode($tax);
+
+      
+   }
+
+
+
+
+   public function addnewnominal(){
+
+   		$NominalCode = 		$_POST['NominalCode'];
+   		$CodeDescription = 	$_POST['CodeDescription'];
+
+       	$nominal=DB::table('nominal')
+       	      ->insertGetId([
+					'NominalCode'		=> "$NominalCode",
+					'CodeDescription'	=> "$CodeDescription"
+			    	 ]);
+
+
+		return json_encode($nominal);
 
       
    }
@@ -2384,6 +2484,35 @@ return json_encode($customers);
    }
 
 
+
+   public function updatenewnominaltable(){
+
+
+	
+			$ClmName = array(
+	 				"NominalId",
+	 				"NominalCode",
+	 				"CodeDescription"
+ 				  );
+
+
+
+
+ 			$NominalId = $_POST['NominalId'];
+ 			$column = $_POST['column'];
+ 			$value = $_POST['value'];
+
+			//return json_encode($NominalId." ".$column." ".$value." ".$ClmName[$column]);
+
+			DB::table('nominal')
+	            ->where('NominalId', "$NominalId")
+	            ->update([
+	            	"$ClmName[$column]" => "$value"
+	            	]);
+
+   }
+
+
    public function deletenewtaxtable(){
 
 
@@ -2393,6 +2522,20 @@ return json_encode($customers);
 				
 			DB::table('tax')
 				->where('TaxId', "$TaxId")
+				->delete();
+
+   }
+
+
+   public function deletenewnominaltable(){
+
+
+
+ 			$NominalId = $_POST['NominalId'];
+
+				
+			DB::table('nominal')
+				->where('NominalId', "$NominalId")
 				->delete();
 
    }
@@ -2463,6 +2606,35 @@ return json_encode($customers);
 			echo "done";
 
 	    }
+
+	}
+
+
+
+
+
+   public function previous_delivery_note_delete_command(){
+
+
+			$InvoicesId = $_POST['InvoicesId'];
+
+
+			DB::table('invoicedetails')
+				->where('InvoicesId', "$InvoicesId")
+				->delete();
+
+
+				
+			DB::table('invoices')
+				->where('InvoicesId', "$InvoicesId")
+				->delete();
+
+
+				
+
+			return json_encode($InvoicesId);
+
+
 
 	}
 

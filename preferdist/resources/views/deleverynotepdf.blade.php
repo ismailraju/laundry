@@ -22,15 +22,54 @@ $DMGtotal=0;
 $EXTRatotal=0;
 $AllTotal=0;
 
+
+
+$tableHotTowelstr="";
+$QTYtotalHotTowel=0;
+$DMGtotalHotTowel=0;
+$EXTRatotalHotTowel=0;
+$AllTotalHotTowel=0;
+
+
+
 for ($i=0; $i < sizeof($quantitylistarray); $i++) { 
 	
-	//echo $quantitylistarray[$i]->ProductName;
-	//echo '<br/>';
+	if( ($quantitylistarray[$i]->ProductName)=="Hot Towel"){
 
-	$QTYtotal=	$QTYtotal+	($quantitylistarray[$i]->Quantity);
-	$DMGtotal=	$DMGtotal+	($quantitylistarray[$i]->Damage);
-	$EXTRatotal=$EXTRatotal+	($quantitylistarray[$i]->Extra);
-	$AllTotal=		$AllTotal+	($quantitylistarray[$i]->TotalAmount);
+
+		$QTYtotalHotTowel= 		$quantitylistarray[$i]->Quantity;
+		$DMGtotalHotTowel= 		$quantitylistarray[$i]->Damage;
+		$EXTRatotalHotTowel= 	$quantitylistarray[$i]->Extra;
+		$AllTotalHotTowel= 		$quantitylistarray[$i]->TotalAmount;
+
+
+		$tableHotTowelstr=$tableHotTowelstr.'<tr><td align="center">';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->ProductName);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td><td align="center">';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Quantity);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td><td align="center">';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Extra);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td><td align="center">';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Damage);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td><td class="cost">&pound;';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Price);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td><td class="cost">&pound;';
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->TotalAmount);
+
+		$tableHotTowelstr=$tableHotTowelstr.'</td></tr>';
+
+	}else{
+
+
+		$QTYtotal=	$QTYtotal+	($quantitylistarray[$i]->Quantity);
+		$DMGtotal=	$DMGtotal+	($quantitylistarray[$i]->Damage);
+		$EXTRatotal=$EXTRatotal+	($quantitylistarray[$i]->Extra);
+		$AllTotal=	$AllTotal  +	($quantitylistarray[$i]->TotalAmount);
 
 
 		$tablestr=$tablestr.'<tr><td align="center">';
@@ -52,7 +91,7 @@ for ($i=0; $i < sizeof($quantitylistarray); $i++) {
 		$tablestr=$tablestr.($quantitylistarray[$i]->TotalAmount);
 
 		$tablestr=$tablestr.'</td></tr>';
-
+	}
 			
 
 }
@@ -247,6 +286,51 @@ $html = '
 				<td class="totals cost">'.$DMGtotal.'</td>
 				<td class="totals cost"></td>
 				<td class="totals cost">&pound;'.$AllTotal.'</td>
+				</tr>
+
+			
+
+
+			</tbody>
+
+
+		</table>
+
+
+				
+
+			<br /><br /><br /><br /><br />
+
+			<table class="items" width="100%" style="font-size: 9pt; border-collapse: collapse;" cellpadding="8">
+				<thead>
+				<tr>
+
+					<td width="40%">Product Name</td>
+					<td width="10%">Quantity</td>
+					<td width="10%">Extra</td>
+					<td width="10%">Damage</td>
+					<td width="15%">Price</td>
+					<td width="15%">Amount</td>
+
+				</tr>
+				</thead>
+
+
+				<tbody>
+				<!-- ITEMS HERE -->
+
+				'.$tableHotTowelstr.'
+				<!-- END ITEMS HERE -->
+
+
+
+				<tr>
+				<td class="totals cost">TOTAL</td>
+				<td class="totals cost">'.$QTYtotalHotTowel.'</td>
+				<td class="totals cost">'.$EXTRatotalHotTowel.'</td>
+				<td class="totals cost">'.$DMGtotalHotTowel.'</td>
+				<td class="totals cost"></td>
+				<td class="totals cost">&pound;'.$AllTotalHotTowel.'</td>
 				</tr>
 
 			

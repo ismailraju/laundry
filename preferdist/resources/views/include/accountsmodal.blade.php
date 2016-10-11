@@ -113,3 +113,107 @@
 		  </div>
 
 
+
+
+<!-- Modal -->
+
+
+
+		  <div class="modal fade" id="newnominalmodal" role="dialog">
+
+			    <div class="modal-dialog modal-lg">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h5 class="modal-title">New Nominal</h5>
+				        </div>
+
+
+				        <div class="modal-body">
+
+					       
+
+					        <table>
+
+					        <!-- NominalId`, `NominalCode`, `CodeDescription -->
+					        	
+					        <tr>
+
+						        	<td><label class=""  for="NominalCode">NominalCode*:</label></td>
+						        	<td><input  type="text" class="form-control" id="NominalCode" name="NominalCode" ></td>
+
+					
+
+						        	<td><label class=""  for="CodeDescription">Description:</label></td>
+						        	<td><input  type="text" class="form-control" id="CodeDescription" name="CodeDescription" ></td>
+
+
+
+
+						        	<td><button class="btn btn-primary" id="newNominalSave">Save</button></td>
+
+					        	
+
+					        </tr>
+
+					        <tr>
+
+
+					        		<table id="newnominaltable"  class="table table-striped table-bordered" cellspacing="0" width="100%" > 
+				
+								      <thead>
+
+								            <tr>
+			<!--  NominalId`, `NominalCode`, `CodeDescription-->					                
+												<th>NominalId</th>
+								                <th>NominalCode</th>
+								                <th>CodeDescription</th>
+								                <th>Action</th>
+
+								               
+								            </tr>
+
+
+								        </thead>
+								     
+
+
+								</table> 
+
+
+
+
+
+
+					     
+					        </tr>
+
+					        </table>
+
+					       
+
+							
+
+				        </div>
+
+
+
+				        <!-- <div class="modal-footer">
+
+				        	<div class="btn-group">
+					          <button type="button" class="btn btn-primary" id="newItemCatagorySaveButton">Save</button>
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+
+
+				        </div> -->
+
+			      </div>
+			      
+			    </div>
+		  </div>
+
+

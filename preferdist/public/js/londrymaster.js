@@ -129,6 +129,14 @@ $.ajaxSetup({
 	});
 
 
+	$(document).on("click","#nominalmasterbtn",function(){
+		
+		
+		$("#newnominalmodal").modal("show");
+
+	});
+
+
 
 
 

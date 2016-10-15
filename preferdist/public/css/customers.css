@@ -38,9 +38,10 @@ fieldset.scheduler-border {
 width: 20px;
 }
 
-.customer_search{
+#customerMastermodal .customer_search{
 
-width: 100px;
+width: 40px;
+padding: 0px;
 
 }
 

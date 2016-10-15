@@ -288,6 +288,10 @@ Route::get('dbbackup', array('uses' => 'HomeController@dbbackup'));
 Route::post('dbbackup', array('uses' => 'HomeController@dbbackup'));
 
 
+Route::get('statementByCustomerpdf', array('uses' => 'HomeController@statementByCustomerpdf'));
+Route::post('statementByCustomerpdf', array('uses' => 'HomeController@statementByCustomerpdf'));
+
+
 
 
 

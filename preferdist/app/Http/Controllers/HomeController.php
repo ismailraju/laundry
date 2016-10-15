@@ -202,5 +202,11 @@ class HomeController extends Controller
 			return view('dbbackup');
 	    
 
+		}		
+		public function statementByCustomerpdf(){
+
+			return view('statementByCustomerpdf');
+	    
+
 		}
 }

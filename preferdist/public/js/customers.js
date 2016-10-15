@@ -108,6 +108,7 @@ var customerlisttable=$('#customerMastermodal #customerlisttable').DataTable( {
 	            { "data": "StandingDay"},
 	            { "data": "StandingAmount"},
 	            { "data": "StandingType"},
+	            { "data": "RegistrationDate"},
 	           /* { "data": "duration", 
 
 	              "render": function ( data, type, full, meta ) {
@@ -151,7 +152,7 @@ var customerlisttable=$('#customerMastermodal #customerlisttable').DataTable( {
 	        //scrollCollapse: true,
 	        scroller: true,
 
-	        autoWidth: true,
+	        //autoWidth: true,
 	        //pagingType: "full_numbers",//first ,last boutton add hoy
 	        rowId: 'CustomersId',
 	        //"bPaginate": false,

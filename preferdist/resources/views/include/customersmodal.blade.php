@@ -290,32 +290,65 @@
 				
 								      <thead>
 
+								          <!--   <tr>
+								              <th>CustomersId</th>
+								              <th>CustomerNumber</th>
+								              <th>CustomerName</th>
+								              <th>Address</th>
+								              <th>City</th>
+								              <th>Country</th>
+								              <th>PostCode</th>
+								              <th>ContactPerson</th>
+								              <th>PhoneNo</th>
+								              <th>Email</th>
+								              <th>DriverNo</th>
+								              <th>Notes</th>
+								              <th>Active</th>
+								              <th>Creditlimit</th>
+								              <th>TaxCode</th>
+								              <th>NominalCode</th>
+								              <th>ItemizingFixedBilling</th>
+								              <th>Invoicetype</th>
+								              <th>AmountFix</th>
+								              <th>HotTowelFree</th>
+								              <th>Weekday</th>
+								              <th>IsStanding</th>
+								              <th>StandingDay</th>
+								              <th>StandingType</th>
+								              <th>StandingAmount</th>
+								              <th>RegDate</th>
+								              <th>Action</th>
+								          
+								             
+								          </tr> -->
+
 								            <tr>
-								                <th>CustomersId</th>
-								                <th>CustomerNumber</th>
-								                <th>CustomerName</th>
+								                <th>Id</th>
+								                <th>Number</th>
+								                <th>Name</th>
 								                <th>Address</th>
 								                <th>City</th>
 								                <th>Country</th>
-								                <th>PostCode</th>
+								                <th>PstCod</th>
 								                <th>ContactPerson</th>
-								                <th>PhoneNo</th>
-								                <th>Email</th>
+								                <th>Phone</th>
+								                <th>Mail</th>
 								                <th>DriverNo</th>
-								                <th>Notes</th>
-								                <th>Active</th>
+								                <th>Note</th>
+								                <th>Activ</th>
 								                <th>Creditlimit</th>
-								                <th>TaxCode</th>
-								                <th>NominalCode</th>
+								                <th>TaxCod</th>
+								                <th>Nominal</th>
 								                <th>ItemizingFixedBilling</th>
-								                <th>Invoicetype</th>
+								                <th>Invoicetyp</th>
 								                <th>AmountFix</th>
-								                <th>HotTowelFree</th>
+								                <th>HotTowlFre</th>
 								                <th>Weekday</th>
-								                <th>IsStanding</th>
-								                <th>StandingDay</th>
-								                <th>StandingType</th>
-								                <th>StandingAmount</th>
+								                <th>IsStand</th>
+								                <th>StandDay</th>
+								                <th>StandTyp</th>
+								                <th>StandAmnt</th>
+								                <th>RegDate</th>
 								                <th>Action</th>
 
 								               
@@ -325,31 +358,32 @@
 								        </thead>
 								        <tfoot>
 								            <tr>
-								                <th>CustomersId</th>
-								                <th>CustomerNumber</th>
-								                <th>CustomerName</th>
+								                <th>Id</th>
+								                <th>Number</th>
+								                <th>Name</th>
 								                <th>Address</th>
 								                <th>City</th>
 								                <th>Country</th>
-								                <th>PostCode</th>
+								                <th>PstCod</th>
 								                <th>ContactPerson</th>
-								                <th>PhoneNo</th>
-								                <th>Email</th>
+								                <th>Phone</th>
+								                <th>Mail</th>
 								                <th>DriverNo</th>
-								                <th>Notes</th>
-								                <th>Active</th>
+								                <th>Note</th>
+								                <th>Activ</th>
 								                <th>Creditlimit</th>
-								                <th>TaxCode</th>
-								                <th>NominalCode</th>
+								                <th>TaxCod</th>
+								                <th>Nominal</th>
 								                <th>ItemizingFixedBilling</th>
-								                <th>Invoicetype</th>
+								                <th>Invoicetyp</th>
 								                <th>AmountFix</th>
-								                <th>HotTowelFree</th>
+								                <th>HotTowlFre</th>
 								                <th>Weekday</th>
-								                <th>IsStanding</th>
-								                <th>StandingDay</th>
-								                <th>StandingType</th>
-								                <th>StandingAmount</th>
+								                <th>IsStand</th>
+								                <th>StandDay</th>
+								                <th>StandTyp</th>
+								                <th>StandAmnt</th>
+								                <th>RegDate</th>
 								                <th>Action</th>
 
 

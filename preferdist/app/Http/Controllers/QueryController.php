@@ -155,7 +155,7 @@ class QueryController extends Controller
 		    /////////////////
 
 
-		  ///////////////////////   	
+		  	///////////////// 	
 		     	echo $CustomerName;
 				echo $Address;
 				echo $City;
@@ -334,7 +334,7 @@ class QueryController extends Controller
 
 						           	DB::table('weekdaychange')
 						           	      ->insertGetId([
-												'CustomersId'	=> "$CustomersId",
+												'CustomersId'			=> "$CustomersId",
 												'WeekDateUpdateString'	=> "$days",
 												'WeekDateUpdateDate'	=> date("Y-m-d")
 						    			    	 ]);
@@ -1580,7 +1580,9 @@ $DayIndexFixArray=array(  "", 6, 7, 1, 2, 3, 4, 5 );
 						->orderBy('WeekDateUpdateDate', 'asc')
 						->get();
 
-//return json_encode($weekdatechangeall);
+
+
+//return json_encode( sizeof( $weekdatechangeall ) );
 			$st="";
 			$missingArray=[];
 
@@ -2179,8 +2181,8 @@ return json_encode($st);
 								
 								$column_name = array(
 				            		$title=>0, 
-				            		$title."Extra"=>0, 
-				            		$title."Damage"=>0, 
+				            		$title."Ex"=>0, 
+				            		$title."Dm"=>0, 
 			            		);	
 
 			            		$columnnames=array_merge((array)$columnnames,(array)$column_name);
@@ -2244,8 +2246,8 @@ return json_encode($st);
 
 
 				           		$columnnames[$title]			=$Quantity;
-				           		$columnnames[$title."Extra"] 	=$Extra;
-				           		$columnnames[$title."Damage"] 	=$Damage ;
+				           		$columnnames[$title."Ex"] 	=$Extra;
+				           		$columnnames[$title."Dm"] 	=$Damage ;
 				           		
 	
 								
@@ -2292,7 +2294,7 @@ return json_encode($st);
 		}
 		
 		array_push( $columnnamesfinal,array( 
-				"title"=>	"TotalAmount(£)", 
+				"title"=>	"Total(£)", 
 				"data" =>	"TotalAmount" 
 
 			) );

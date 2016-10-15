@@ -1,7 +1,7 @@
 
 jQuery(document).ready(function($) {
 
-	
+	var statementbycustomertable;
 	
     $( "#tabs-4 #statementbycustomerdateStart,#tabs-4 #statementbycustomerdateEnd" ).datepicker({
     	buttonImageOnly: true,
@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
 		         
 		         "Name": "Heather",
 		         "Age": 55,
-		         "Image": "<img height='85' width='85' src='image.jpg'/>",
+		         "Image": "<img height='85' width='85' src=''/>",
 		         "Index": 3
 		      },
 		      {
@@ -57,14 +57,10 @@ jQuery(document).ready(function($) {
 		        { "title": "Image", "data": "Image" }
 		    ]
 		});
-//var dataObject = eval('[{"COLUMNS":[{ "title": "NAME"}, { "title": "COUNTY"}],"DATA":[["John Doe","Fresno"],["Billy","Fresno"],["Tom","Kern"],["King Smith","Kings"]]}]');
+
     var columns = [];
-   // $('#statementbycustomertable').dataTable(dataObject);
 
 
-
-//var statementbycustomertable = $('#statementbycustomertable').DataTable(dataObject);
-//$('#statementbycustomertable').empty();
 
 $(document).on("click", "#Statment_By_Customer,#statementbycustomerGenarateBtn", function(){
 
@@ -98,15 +94,26 @@ $(document).on("click", "#Statment_By_Customer,#statementbycustomerGenarateBtn",
 
 				console.log(JSON.stringify(response));
 				//alert(JSON.stringify(response));
+				// if ( ! $.fn.DataTable.isDataTable( statementbycustomertable ) ) {
+				//   	//statementbycustomertable = $('#statementbycustomertable').DataTable({});
+				//   	//statementbycustomertable.destroy();
+				//   	alert("not exist");
 
-					statementbycustomertable = $('#statementbycustomertable').DataTable(dataObject);
-				    statementbycustomertable.destroy();
+				// }else{
+				// 	statementbycustomertable.destroy();
+				// 	alert("exist");
 
-				    $('#statementbycustomertable').empty();
+				// }
 
-				    statementbycustomertable=$('#statementbycustomertable').dataTable(response[0]);
+					window.statementbycustomertable = $('#statementbycustomertable').DataTable(dataObject);
+				   	window.statementbycustomertable.destroy();
 
-				    
+				    // $('#statementbycustomertable').empty();
+
+				    // statementbycustomertable=$('#statementbycustomertable').dataTable(response[0]);
+
+				    statementbycustomertable = undefined;
+				    delete window.statementbycustomertable;
 
 				}
 
@@ -119,6 +126,11 @@ $(document).on("click", "#Statment_By_Customer,#statementbycustomerGenarateBtn",
 			    //alert(JSON.stringify(quantitylistarray));
 			    $('#tabs-4 #statementbycustomercustomeroption').prop("disabled", true);
 
+			    $('#statementbycustomertable').empty();
+
+			    window.statementbycustomertable=$('#statementbycustomertable').dataTable(response[0]);
+
+			     window.tablealldata=response[0];
 			   
 		})
 	  
@@ -152,8 +164,10 @@ $(document).on("click", "#tabs-4  #statementbycustomerCreateNewBtn", function(){
 
 		$('#tabs-4 #statementbycustomercustomeroption').prop("disabled", false);
 
-		statementbycustomertable.clear().draw();
+		//$('#statementbycustomertable').clear().draw();
+		//statementbycustomertable.clear().draw();
 		//$('#deliverynotenumberinput').val("");
+		$('#tabs-4  #statementbycustomertable').empty();
 
 });
 
@@ -165,16 +179,67 @@ $(document).on("click", "#tabs-4  #statementbycustomerCreateNewBtn", function(){
 $(document).on("click", "#statementbycustomerPrintBtn", function(){
 
 
+		var statementbycustomerdateStart=$("#tabs-4 #statementbycustomerdateStart").datepicker( "getDate" );
+		statementbycustomerdateStart=moment(statementbycustomerdateStart).format("YYYY-MM-DD");
 
-	
-//alert( $( "#tabs-4 #statementbycustomertable" ).html() );
-//console.log( $( "#tabs-4 #statementbycustomertable" ).html() );
 
-    var $row = $(this).closest("tr");    // Find the row
-    var $text = $row.find(".nr").text(); // Find the text
-    
-    // Let's test it out
-    alert($text);
+		var statementbycustomerdateEnd=$("#tabs-4 #statementbycustomerdateEnd").datepicker( "getDate" );
+		statementbycustomerdateEnd=moment(statementbycustomerdateEnd).format("YYYY-MM-DD");
+
+
+
+
+		var customeridd=parseInt($("#tabs-4 #statementbycustomercustomeroption option:selected").attr("value"));
+		
+		//alert(customeridd+" "+statementbycustomerdateStart+" "+statementbycustomerdateEnd);
+
+		$.ajax({
+			url:"statement_by_customer_Genarate",
+			type:'POST',
+			dataType: "json",
+			//dataType: "Array",
+			data:{
+
+				"customeridd"					:customeridd,
+				"statementbycustomerdateStart"	:statementbycustomerdateStart,
+				"statementbycustomerdateEnd"	:statementbycustomerdateEnd
+			},
+			success:function(response) {
+
+					//console.log(JSON.stringify(response));
+					//alert(JSON.stringify(response));
+
+					statementByCustomerpdfcustomerinforequest( response[0] );
+
+					}
+
+		})
+		.done(
+			function( response ) {
+
+			    console.log(">>done<<");
+
+
+			    
+		})
+	  
+	  	.fail(
+	  			function( xhr, status, errorThrown ) {
+				    alert( "Sorry, there was a problem!" );
+				    console.log( "Error: " + errorThrown );
+				    console.log( "Status: " + status );
+				    console.dir( xhr );
+		})
+	  
+	  	.always(
+	  			function( xhr, status ) {
+	  				console.log(">>always<<");
+	  	
+		});
+
+
+
+     //alert( JSON.stringify(window.tablealldata));
 
 });
 
@@ -185,6 +250,106 @@ $(document).on("click", "#statementbycustomerPrintBtn", function(){
 
 
 
+function statementByCustomerpdfcustomerinforequest( invoiceslistarray ){
+
+	
+	var CustomersId=parseInt($("#tabs-4 #statementbycustomercustomeroption option:selected").attr("value"));
+
+
+	$.ajax({
+		url:"deliverynotepdfcustomerinforequest",
+		type:'POST',
+		dataType: "json",
+		//dataType: "Array",
+		data:{
+
+			"CustomersId":CustomersId
+		},
+		success:function(response) {
+				//alert(JSON.stringify(response));
+				statementByCustomerpdf_(invoiceslistarray, response);
+
+
+			}
+
+		})
+		.done(
+			function( response ) {
+
+			    console.log(">>done<<");
+
+		})
+	  
+	  	.fail(
+	  			function( xhr, status, errorThrown ) {
+				    alert( "Sorry, there was a problem!" );
+				    console.log( "Error: " + errorThrown );
+				    console.log( "Status: " + status );
+				    console.dir( xhr );
+		})
+	  
+	  	.always(
+	  			function( xhr, status ) {
+	  				console.log(">>always<<");
+	  	
+		});
+
+
+}
+
+
+
+function statementByCustomerpdf_( invoiceslistarray, customersinfo){
+
+
+	 //alert('statementByCustomerpdf_()');
+	 //alert(JSON.stringify(invoiceslistarray));
+	 //alert(JSON.stringify(customersinfo));
+
+		var mapForm = document.createElement("form");
+	   // mapForm.target = "Map";
+	    mapForm.style = "display:none;";
+	    mapForm.target = "Map";
+	    mapForm.method = "GET"; // or "post" if appropriate
+	    mapForm.action = "statementByCustomerpdf";
+	    //mapForm.action = "http://localhost/appointment/wp-content/plugins/first-plugin/mpdf/my.php";
+
+	    var mapInput = document.createElement("input");
+	    mapInput.type = "text";
+	    mapInput.name = "invoiceslistarray";
+	    mapInput.value = JSON.stringify(invoiceslistarray, null, 2);;
+	    mapForm.appendChild(mapInput);
+
+	    var mapInput = document.createElement("input");
+	    mapInput.type = "text";
+	    mapInput.name = "customersinfo";
+	    mapInput.value = JSON.stringify(customersinfo, null, 2);;
+	    mapForm.appendChild(mapInput);
+
+
+
+	    // mapInput = document.createElement("input");
+	    // mapInput.type = "text";
+	    // mapInput.name = "deliverynotedate";
+	    // mapInput.value = invoicedata.InvoiceDate;
+	    // mapForm.appendChild(mapInput);
+
+////////////////////////////////////////////////////////////////////
+
+		document.body.appendChild(mapForm);
+
+		    map = window.open("", "Map", "status=0,title=0,height=600,width=800,scrollbars=1", '_blank');
+
+		if (map) {
+		    mapForm.submit();
+		    mapForm.remove();
+		} else {
+		    alert('You must allow popups for this map to work.');
+		}
+
+
+
+}
 
 
 

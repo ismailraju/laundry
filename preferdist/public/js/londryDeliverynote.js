@@ -412,16 +412,23 @@ function customerlist(){
 
 			    console.log(">>done<<");
 
-			    customeridd=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
-				//productlistbycustomerid(customeridd);
-				productlistandpredeliveryallbycustomerid(customeridd);
-				productstocklistbycustomerid(customeridd);
-				deliverydaybycustomerid(customeridd);
-				pendingdeliverynote(customeridd);
-				message_modal(customeridd);
+			    if(response!=""){
+
+				    customeridd=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
+				    //alert(JSON.stringify(response));
+					//productlistbycustomerid(customeridd);
+					productlistandpredeliveryallbycustomerid(customeridd);
+					productstocklistbycustomerid(customeridd);
+					deliverydaybycustomerid(customeridd);
+					pendingdeliverynote(customeridd);
+					message_modal(customeridd);
+
+					//previousdeliverynotelisttableconfigure(customeridd);
 
 
-				//previousdeliverynotelisttableconfigure(customeridd);
+
+			    }
+
 
 		})
 	  
@@ -739,6 +746,7 @@ function pendingdeliverynote(CustomersId){
 				//alert(  $.datepicker.formatDate("dd M yy", new Date("2016-08-11"))   );
 
 				console.log(JSON.stringify(response));
+				//alert(JSON.stringify(response));
 
 
 				var strr="Missing Delivery\n";

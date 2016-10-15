@@ -76,7 +76,9 @@ $("#supplierMastermodal").on("shown.bs.modal",function (e) {
 
 var supplierlisttable=$('#supplierMastermodal #supplierlisttable').DataTable( {
 
-			
+			"language": {
+			        "emptyTable":     "My Custom Message On Empty Table"
+			    },
 
 	        "ajax": {
 

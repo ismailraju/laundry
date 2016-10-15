@@ -1,6 +1,6 @@
 #Laundry Management MySQL database backup
 
-# Generated: Tuesday 11. October 2016 20:13 UTC  Laundry Management
+# Generated: Friday 14. October 2016 15:41 UTC  Laundry Management
 # --------------------------------------------------------
 
 SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
@@ -54,7 +54,7 @@ CREATE TABLE `customers` (
   `RegistrationDate` date NOT NULL,
   PRIMARY KEY (`CustomersId`),
   KEY `CompaniesId` (`CompaniesId`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
 
 
@@ -66,47 +66,19 @@ CREATE TABLE `customers` (
 
 
 INSERT INTO `customers`(`CustomersId`,`CustomerNumber`,`CompaniesId`,`CustomerName`,`Address`,`City`,`Country`,`PostCode`,`ContactPerson`,`PhoneNo`,`FaxNumber`,`Email`,`DriverNo`,`Notes`,`Active`,`Creditlimit`,`DueSettlement`,`TaxCode`,`NominalCode`,`VatNo`,`ItemizingFixedBilling`,`Invoicetype`,`AmountFix`,`HotTowelFree`,`Weekday`,`IsStanding`,`StandingDay`,`StandingAmount`,`StandingType`,`RegistrationDate`) VALUES
-('25','10','1','raju','dhaka','dahak','','1206','ABUL','0134575995','','RAJU@RAJU.COM','01674266054','VERY GOOD','yes','14',NULL,'2','2','','FixedBill','yearly','2200','yes','1_3_4_5_','',NULL,NULL,'','2016-01-01'),
-('26','','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','','yes','2',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','2_3_','',NULL,NULL,'','2016-01-01'),
-('27','','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','dsfgsd','yes','2',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_5_6_','',NULL,NULL,'','2016-01-01'),
-('28','','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','dsfgsd','yes','2',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','2_3_5_6_','',NULL,NULL,'','2016-01-01'),
-('29','','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','dsfgsd','yes','2',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','2_3_5_6_','',NULL,NULL,'','2016-01-01'),
-('30','','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','dsfgsd','yes','2',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','2_3_5_6_','',NULL,NULL,'','2016-01-01'),
-('31','','1','sdas','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('32','','1','sdas','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('34','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('35','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('36','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('39','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('40','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('41','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('42','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('43','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('44','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('45','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('46','','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','2_3_4_','',NULL,NULL,'','2016-01-01'),
-('47','','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('48','','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('49','','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('50','','1','fdfddfdssfd','','','','','','','','','','','',NULL,NULL,NULL,NULL,'','','',NULL,'','','on','1','22','sgfsad','2016-01-01'),
-('51','5','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,'2','2','','FixedBill','yearly','5000','yes','1_2_3_','',NULL,NULL,'','2016-06-01'),
-('52','','1','vdvdvfgfg','dsvsgffg','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('53','','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('54','','1','gfg','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('55','','1','gfg','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('56','','1','gfg','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','on','1',NULL,'','2016-01-01'),
-('57','','1','gfg','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly',NULL,'yes','','on','54','454','monthly','2016-01-01'),
-('58','','1','gfg','dsgsdf','gds','','fgdf','fd','fdg','','g','fd','hffdhfg','yes','78858',NULL,NULL,'0','','FixedBill','yearly','5278','yes','2_3_4_','on','54','454','monthly','2016-01-01'),
-('59','','1','dsfd','','','','','','','','','','','yes','0',NULL,NULL,'0','','FixedBill','yearly','5277','yes','','on','52','257','weekly','2016-01-01'),
-('61','','1','gfg','dsgsdf','gds','','fgdf','fd','fdg','','g','fd','hffdhfg','yes','78858',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('62','','1','gfg','dsgsdf','gds','','fgdf','fd','fdg','','g','fd','hffdhfg','yes','78858',NULL,NULL,'0','','Itemizing','yearly',NULL,'yes','','',NULL,NULL,'','2016-01-01'),
-('63','','1','worldmartccustomer','dhaka','dk','','1206','mofij','01675956554','','ewfer22@RDGD.GRE','01845484818','erhgreh','yes','2000',NULL,NULL,'727','','Itemizing','monthly',NULL,'','1_2_3_','',NULL,NULL,'','2016-01-01'),
-('86','','1','fdfd','fd','aadsa','','1902','sdsds','dsdsd','','sds@dsfs.hgk','ghgfhgfhh','','yes','6',NULL,NULL,'1','','FixedBill','monthly','1200','yes',' 2_3_','on','1','2000','fortnight','2016-01-01'),
-('87','','1','walton','tangail','Dhaka','','1902','mofij','01684575990','','sds@dsfs.hgk','017548965525','Details','yes','1000',NULL,'2','2','','FixedBill','monthly','1200','no',' 2_','on','1','2000','fortnight','2016-01-01'),
-('89','333333','1','fuji color','dkaka','dhaka','','1206','selim','187596425385','','dsgd@dsfsd.dg','017558692453','wwwwwwwwwwwwwww','yes','123456789',NULL,'2','1','','FixedBill','yearly','4444444','no',' 1_2_3_4_5_6_7_','on','25','22222','monthly','2016-01-01'),
-('90','66666666','1','fuji color','dkaka','dhaka','','1206','selim','187596425385','','dsgd@dsfsd.dg','017558692453','wwwwwwwwwwwwwww','yes','123456789',NULL,'2','1','','Itemizing','yearly',NULL,'no',' 1_2_3_','on','25','22222','monthly','2016-01-01'),
-('91','','1','Fuad','canada','canada','','1206','canadacanada','canada','','canada@gmail.com','016438295','customr','yes','28',NULL,'1','1','','FixedBill','monthly','2000','yes',' 2_','',NULL,NULL,'','2016-01-01'),
-('92','20','1','ASIF','ASIF address','ASIF city','','12060','ASIF PS','0167435859','','ASIF@ASIF.ASIF','0155555555555','very good boy','yes','57',NULL,'2','2','','FixedBill','monthly','40000','yes','1_2_3_','',NULL,NULL,'','2016-09-24');
+('25','10','1','raju','dhaka','dahak','','1206','ABUL','0134575995','','RAJU@RAJU.COM','01674266054','VERY GOOD','yes','14',NULL,'2','2','','FixedBill','yearly','2200','no','1_3_4_5_','',NULL,NULL,'','2016-01-01'),
+('26','10','1','raju','sdg','dfs','','dfsd','fds','01674382555','','dfgs','dsaf','','yes','2',NULL,'2','2','','Itemizing','yearly',NULL,'yes','2_3_','',NULL,NULL,'','2016-01-01'),
+('31','21','1','sdas','sdas','sdas','','sdas','sdas','sdas','','sdas','sdas','','yes','0',NULL,'3','3','','FixedBill','yearly','200','yes','3_5_','',NULL,NULL,'','2016-01-01'),
+('40','22','1','sdas','re','rggre','','g','er','greg','','res','gser','regdg','yes','226',NULL,'3','2','','FixedBill','yearly','424','yes','2_3_4_6_','',NULL,NULL,'','2016-01-01'),
+('47','12','1','vdvdv','dsvs','ddv','','dsv','sd','s','','vds','vdsvsd','','yes','5354',NULL,'2','2','','Itemizing','yearly',NULL,'yes','3_5_','',NULL,NULL,'','2016-01-01'),
+('61','44','1','gfg','dsgsdf','gds','','fgdf','fd','fdg','','g','fd','hffdhfg','yes','78858',NULL,'3','2','','Itemizing','yearly',NULL,'yes','1_3_5_7_','',NULL,NULL,'','2016-01-01'),
+('63','11','1','worldmartccustomer','dhaka','dk','','1206','mofij','01675956554','','ewfer22@RDGD.GRE','01845484818','erhgreh','yes','2000',NULL,'3','2','','Itemizing','monthly',NULL,'yes','1_2_3_5_7_','',NULL,NULL,'','2016-01-01'),
+('87','11','1','walton','tangail','Dhaka','','1902','mofij','01684575990','','sds@dsfs.hgk','017548965525','Details','yes','1000',NULL,'2','2','','FixedBill','monthly','1200','no','2_4_6_','on','1','2000','fortnight','2016-01-01'),
+('90','66666666','1','fuji color','dkaka','dhaka','','1206','selim','187596425385','','dsgd@dsfsd.dg','017558692453','wwwwwwwwwwwwwww','yes','123456789',NULL,'2','1','','Itemizing','yearly',NULL,'no','1_2_3_','on','25','22222','monthly','2016-01-01'),
+('91','100','1','Fuad','canada','canada','','1206','canadacanada','canada','','canada@gmail.com','016438295','customr','yes','28',NULL,'1','1','','FixedBill','monthly','2000','yes','2_4_6_','on','0','0','fortnight','2016-01-01'),
+('92','20','1','ASIF','ASIF address','ASIF city','','12060','ASIF PS','0167435859','','ASIF@ASIF.ASIF','0155555555555','very good boy','yes','57',NULL,'2','2','','FixedBill','monthly','40000','yes','1_2_3_','on','0','0','fortnight','2016-09-24'),
+('93','22','1','asiq','asiq','asiq','','1206','asiqasiq','01674599855','','asiq','12','hot towel test','yes','4',NULL,'1','1','','FixedBill','yearly','200','yes','2_3_4_','on','0','0','fortnight','2016-10-12'),
+('94','100','1','rubel','rubel','rubel','','rubel','rubel','rubel','','rubel','rubelrubel','fdghdfh','yes','122',NULL,'1','1','','FixedBill','yearly','22','no','1_3_6_','',NULL,NULL,'','2016-08-13');
 
 
 
@@ -471,7 +443,7 @@ CREATE TABLE `invoicedetails` (
   KEY `InvoicesId` (`InvoicesId`),
   KEY `ItemId` (`ItemId`),
   KEY `ProductsId` (`ProductsId`)
-) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=latin1;
 
 
 
@@ -486,31 +458,16 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('13','9','3','16',NULL,'3','5','1','16','',NULL,NULL,'yes'),
 ('14','9','11','18',NULL,'3','5',NULL,'16','',NULL,NULL,''),
 ('15','9','13','20',NULL,'35','0',NULL,'70','',NULL,NULL,''),
-('16','10','3','16',NULL,'3','5',NULL,'16','',NULL,NULL,'yes'),
-('17','10','11','18',NULL,'3','5',NULL,'16','',NULL,NULL,''),
-('18','10','13','20',NULL,'35','0',NULL,'70','',NULL,NULL,''),
-('19','10','14','21',NULL,'0','3',NULL,'5','',NULL,NULL,''),
-('20','11','3','16',NULL,'3','3',NULL,'12','',NULL,NULL,'no'),
-('21','11','6','17',NULL,'2','0',NULL,'8','',NULL,NULL,'no'),
-('22','11','11','18',NULL,'3','3',NULL,'12','',NULL,NULL,''),
-('23','11','13','20',NULL,'3','1',NULL,'8','',NULL,NULL,''),
-('24','11','14','21',NULL,'2','0',NULL,'3','',NULL,NULL,''),
 ('25','12','3','32',NULL,'3','5',NULL,'16','',NULL,NULL,''),
 ('26','12','12','33',NULL,'4','5',NULL,'18','',NULL,NULL,''),
 ('27','12','6','34',NULL,'3','0',NULL,'6','',NULL,NULL,'yes'),
 ('28','12','11','35',NULL,'4','4',NULL,'16','',NULL,NULL,''),
 ('29','12','13','36',NULL,'6','0',NULL,'12','',NULL,NULL,''),
 ('30','12','14','37',NULL,'45','0',NULL,'90','',NULL,NULL,''),
-('31','13','3','16',NULL,'40','10','40','100','',NULL,NULL,'no'),
 ('32','14','3','16',NULL,'1','0','1','2','',NULL,NULL,'no'),
 ('33','14','6','17',NULL,'0','1','0','2','',NULL,NULL,'no'),
 ('34','14','11','18',NULL,'1','1','0','4','',NULL,NULL,'no'),
 ('35','14','14','21',NULL,'1','0','0','2','',NULL,NULL,'no'),
-('36','15','3','32',NULL,'1','0','1','2','',NULL,NULL,'no'),
-('37','15','12','33',NULL,'2','0','0','4','',NULL,NULL,'no'),
-('38','15','11','35',NULL,'3','0','1','6','',NULL,NULL,'no'),
-('39','15','13','36',NULL,'4','4','0','16','',NULL,NULL,'no'),
-('40','15','14','37',NULL,'0','4','0','8','',NULL,NULL,'no'),
 ('42','17','3','16',NULL,'31','1','2','64','',NULL,NULL,'no'),
 ('43','17','11','18',NULL,'20','0','0','40','',NULL,NULL,'no'),
 ('44','17','13','20',NULL,'4','0','0','8','',NULL,NULL,'no'),
@@ -528,86 +485,18 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('77','22','3','16',NULL,'14','0','0','28','',NULL,NULL,'no'),
 ('78','22','11','18',NULL,'0','12','0','24','',NULL,NULL,'no'),
 ('79','23','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('80','24','3','16',NULL,'1','0','0','2','',NULL,NULL,'no'),
-('81','24','11','18',NULL,'0','1','0','2','',NULL,NULL,'no'),
 ('82','25','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('83','25','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('84','26','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('85','27','3','16',NULL,'1','0','0','2','',NULL,NULL,'no');
-INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsId`,`OrderNo`,`Quantity`,`Extra`,`Damage`,`PricePerUnit`,`PaymentTerms`,`Discount`,`Datetime`,`Flag`) VALUES
+('85','27','3','16',NULL,'1','0','0','2','',NULL,NULL,'no'),
 ('86','27','11','18',NULL,'0','1','0','2','',NULL,NULL,'no'),
 ('87','28','3','16',NULL,'1','0','0','2','',NULL,NULL,'no'),
 ('88','28','11','18',NULL,'0','1','0','2','',NULL,NULL,'no'),
-('89','40','3','16',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('90','40','6','17',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('91','40','11','18',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('92','40','13','20',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('93','40','14','21',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('94','41','3','16',NULL,'100','1','1','202','',NULL,NULL,'no'),
-('95','41','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('96','41','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('97','41','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('98','41','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('99','42','3','16',NULL,'14','10','0','48','',NULL,NULL,'no'),
-('100','42','6','17',NULL,'16','18','1','68','',NULL,NULL,'no'),
-('101','42','11','18',NULL,'0','18','1','36','',NULL,NULL,'no'),
-('102','42','13','20',NULL,'15','13','1','56','',NULL,NULL,'no'),
-('103','42','14','21',NULL,'23','17','1','60','',NULL,NULL,'no'),
-('104','43','3','16',NULL,'1','0','0','2','',NULL,NULL,'no'),
-('105','43','11','18',NULL,'0','1','0','2','',NULL,NULL,'no'),
-('106','43','13','20',NULL,'0','0','1','0','',NULL,NULL,'no'),
-('107','44','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('108','44','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('109','44','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('110','44','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('111','44','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('112','45','3','16',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('113','45','6','17',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('114','45','11','18',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('115','45','13','20',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('116','45','14','21',NULL,'1','1','0','3','',NULL,NULL,'no'),
-('117','46','3','16',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('118','46','6','17',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('119','46','11','18',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('120','46','13','20',NULL,'1','1','0','4','',NULL,NULL,'no'),
-('121','46','14','21',NULL,'1','1','0','3','',NULL,NULL,'no'),
-('122','47','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('123','47','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('124','47','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('125','47','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('126','47','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('127','48','3','16',NULL,'0','9','0','18','',NULL,NULL,'no'),
-('128','53','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('129','53','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('130','53','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('131','53','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('132','53','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('133','54','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('134','54','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('135','54','11','18',NULL,'1','1','1','4','',NULL,NULL,'no');
-INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsId`,`OrderNo`,`Quantity`,`Extra`,`Damage`,`PricePerUnit`,`PaymentTerms`,`Discount`,`Datetime`,`Flag`) VALUES
-('136','54','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('137','54','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
 ('138','55','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('139','55','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('140','55','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('141','55','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('142','55','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('143','56','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('144','56','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('145','56','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('146','56','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('147','56','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('148','57','3','16',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('149','57','6','17',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('150','57','11','18',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('151','57','13','20',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('152','57','14','21',NULL,'1','1','1','3','',NULL,NULL,'no'),
-('153','58','3','16',NULL,'2','2','2','8','',NULL,NULL,'no'),
-('154','58','6','17',NULL,'2','2','2','8','',NULL,NULL,'no'),
-('155','58','11','18',NULL,'2','2','2','8','',NULL,NULL,'no'),
-('156','58','13','20',NULL,'2','2','2','8','',NULL,NULL,'no'),
-('157','58','14','21',NULL,'2','2','2','6','',NULL,NULL,'no'),
 ('158','59','3','16',NULL,'4','4','4','16','',NULL,NULL,'no'),
 ('159','59','6','17',NULL,'4','4','4','16','',NULL,NULL,'no'),
 ('160','59','11','18',NULL,'4','4','4','16','',NULL,NULL,'no'),
@@ -616,7 +505,8 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('163','60','3','32',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('164','60','12','33',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('165','60','6','34',NULL,'1','1','1','4','',NULL,NULL,'no'),
-('166','60','11','35',NULL,'1','1','1','4','',NULL,NULL,'no'),
+('166','60','11','35',NULL,'1','1','1','4','',NULL,NULL,'no');
+INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsId`,`OrderNo`,`Quantity`,`Extra`,`Damage`,`PricePerUnit`,`PaymentTerms`,`Discount`,`Datetime`,`Flag`) VALUES
 ('167','60','13','36',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('168','60','14','37',NULL,'1','1','1','4','',NULL,NULL,'no'),
 ('169','61','6','38',NULL,'1','1','1','5','',NULL,NULL,'no'),
@@ -633,12 +523,6 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('180','64','11','18',NULL,'22','1','1','46','',NULL,NULL,'no'),
 ('181','64','13','20',NULL,'22','1','1','46','',NULL,NULL,'no'),
 ('182','64','14','21',NULL,'22','1','1','35','',NULL,NULL,'no'),
-('193','65','3','16',NULL,'78678','1','4547','157358','',NULL,NULL,'no'),
-('194','65','6','17',NULL,'678','0','0','1356','',NULL,NULL,'no'),
-('195','65','11','18',NULL,'86','6','254','184','',NULL,NULL,'no');
-INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsId`,`OrderNo`,`Quantity`,`Extra`,`Damage`,`PricePerUnit`,`PaymentTerms`,`Discount`,`Datetime`,`Flag`) VALUES
-('196','65','13','20',NULL,'515','786','0','2602','',NULL,NULL,'no'),
-('197','65','14','21',NULL,'999','528','26','1499292','',NULL,NULL,'no'),
 ('198','66','3','32',NULL,'22','22','22','88','',NULL,NULL,'no'),
 ('199','66','12','33',NULL,'22','22','22','88','',NULL,NULL,'no'),
 ('200','66','6','34',NULL,'22','22','22','88','',NULL,NULL,'no'),
@@ -650,7 +534,8 @@ INSERT INTO `invoicedetails`(`InvoiceDetailsId`,`InvoicesId`,`ItemId`,`ProductsI
 ('206','69','3','22',NULL,'2','22','0','48','',NULL,NULL,'no'),
 ('207','70','3','22',NULL,'2','2','2','8','',NULL,NULL,'no'),
 ('208','71','3','22',NULL,'3','0','0','6','',NULL,NULL,'no'),
-('209','72','3','22',NULL,'33','0','0','66','',NULL,NULL,'no');
+('209','72','3','22',NULL,'33','0','0','66','',NULL,NULL,'no'),
+('210','73','15','46',NULL,'20','1','1','42','',NULL,NULL,'no');
 
 
 
@@ -725,7 +610,7 @@ CREATE TABLE `invoices` (
   PRIMARY KEY (`InvoicesId`),
   KEY `CustomersId` (`CustomersId`),
   KEY `CompaniesId` (`CompaniesId`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 
 
@@ -738,70 +623,37 @@ CREATE TABLE `invoices` (
 
 INSERT INTO `invoices`(`InvoicesId`,`CustomersId`,`CompaniesId`,`InvoiceDate`,`Notes`,`Status`,`TotalAmount`,`DueAmount`,`DueDate`) VALUES
 ('9','25','1','2016-08-28','','yes','200','200',NULL),
-('10','25','1','2016-08-28','','yes','200','200',NULL),
-('11','25','1','2016-08-28','','yes','200','200',NULL),
 ('12','63','1','2016-08-28','','yes','200','200',NULL),
-('13','25','1','2016-08-28','','yes','200','200',NULL),
 ('14','25','1','2016-08-28','','yes','200','200',NULL),
-('15','63','1','2016-08-28','','yes','200','200',NULL),
 ('16','25','1','2016-08-29','','yes','39','39',NULL),
 ('17','25','1','2016-08-28','','yes','200','200',NULL),
 ('18','25','1','2016-08-28','','yes','84','84',NULL),
 ('19','25','1','2016-08-28','','yes','4','4',NULL),
 ('20','25','1','2016-09-17','','yes','70','70',NULL),
-('21','25','1','2016-09-23','','yes','0','0',NULL),
 ('22','25','1','2016-09-23','','yes','52','52',NULL),
 ('23','25','1','2016-09-23','','yes','4','4',NULL),
-('24','25','1','2016-09-23','','yes','4','4',NULL),
 ('25','25','1','2016-09-23','','yes','8','8',NULL),
 ('26','25','1','2016-09-23','','yes','4','4',NULL),
 ('27','25','1','2016-09-23','','yes','4','4',NULL),
 ('28','25','1','2016-09-23','','yes','4','4',NULL),
-('29','25','1','2016-09-23','','yes','0','0',NULL),
-('30','25','1','2016-09-23','','yes','0','0',NULL),
-('31','25','1','2016-09-23','','yes','0','0',NULL),
-('32','25','1','2016-09-23','','yes','0','0',NULL),
-('33','25','1','2016-09-23','','yes','0','0',NULL),
-('34','25','1','2016-09-23','','yes','2','2',NULL),
-('35','25','1','2016-09-23','','yes','0','0',NULL),
-('36','25','1','2016-09-23','','yes','2','2',NULL),
 ('37','25','1','2016-09-23','','yes','4','4',NULL),
 ('38','25','1','2016-09-23','','yes','4','4',NULL),
 ('39','25','1','2016-09-23','','yes','4','4',NULL),
-('40','25','1','2016-09-23','','yes','0','0',NULL),
-('41','25','1','2016-09-23','','yes','217','217',NULL),
-('42','25','1','2016-09-23','','yes','268','268',NULL),
-('43','25','1','2016-09-23','','yes','4','4',NULL),
-('44','25','1','2016-09-23','','yes','19','19',NULL),
-('45','25','1','2016-09-23','','yes','19','19',NULL),
-('46','25','1','2016-09-23','','yes','19','19',NULL),
-('47','25','1','2016-09-23','','yes','19','19',NULL),
-('48','25','1','2016-09-23','','yes','18','18',NULL),
-('49','25','1','2016-09-23','','yes','2','2',NULL),
-('50','25','1','2016-09-23','','yes','2','2',NULL),
-('51','25','1','2016-09-23','','yes','4','4',NULL),
-('52','25','1','2016-09-23','','yes','4','4',NULL),
-('53','25','1','2016-09-23','','yes','19','19',NULL),
-('54','25','1','2016-09-23','','yes','19','19',NULL),
 ('55','25','1','2016-09-23','','yes','19','19',NULL),
-('56','25','1','2016-09-24','','yes','19','19',NULL),
-('57','25','1','2016-09-25','','yes','19','19',NULL),
-('58','25','1','2016-09-23','','yes','38','38',NULL),
-('59','25','1','2016-09-24','','yes','76','76',NULL);
-INSERT INTO `invoices`(`InvoicesId`,`CustomersId`,`CompaniesId`,`InvoiceDate`,`Notes`,`Status`,`TotalAmount`,`DueAmount`,`DueDate`) VALUES
+('59','25','1','2016-09-24','','yes','76','76',NULL),
 ('60','63','1','2016-09-21','','yes','24','24',NULL),
 ('61','92','1','2016-09-02','','yes','9','9',NULL),
 ('62','92','1','2016-10-02','','yes','18','18',NULL),
 ('63','25','1','2016-10-03','','yes','95','95',NULL),
 ('64','25','1','2016-10-08','','yes','853','853',NULL),
-('65','25','1','2016-10-08','','yes','1660792','1660792',NULL),
 ('66','63','1','2016-10-10','','yes','528','528',NULL),
 ('67','26','1','2016-10-12','','yes','48','48',NULL),
 ('68','26','1','2016-10-12','','yes','4','4',NULL),
 ('69','26','1','2016-10-12','','yes','48','48',NULL),
 ('70','26','1','2016-10-12','','yes','8','8',NULL),
 ('71','26','1','2016-10-12','','yes','6','6',NULL),
-('72','26','1','2016-10-12','','yes','66','66',NULL);
+('72','26','1','2016-10-12','','yes','66','66',NULL),
+('73','94','1','2016-10-06','','yes','42','42',NULL);
 
 
 
@@ -875,7 +727,7 @@ CREATE TABLE `item` (
   PRIMARY KEY (`ItemId`),
   KEY `ItemCategoryId` (`ItemCategoryId`),
   KEY `ItemUnitId` (`ItemUnitId`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 
 
@@ -893,7 +745,8 @@ INSERT INTO `item`(`ItemId`,`ItemName`,`AveragePrice`,`ItemCategoryId`,`ItemUnit
 ('11','mobile','200000','2','1','20','stock','xaomi','yes','','0','12'),
 ('12','towel','2','1','1','255','stock','valo','yes','','2','3'),
 ('13','fsdfssfs','12','1','1','0','stock','ghj','yes','','0','0'),
-('14','esfs','0','1','1','0','stock','dsfsf','yes','','0','0');
+('14','esfs','0','1','1','0','stock','dsfsf','yes','','0','0'),
+('15','Hot Towel','2','1','4','0','stock','good ','yes','','0','0');
 
 
 
@@ -1134,7 +987,7 @@ CREATE TABLE `nominal` (
   `NominalCode` text,
   `CodeDescription` text,
   PRIMARY KEY (`NominalId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 
 
@@ -1301,7 +1154,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`ProductsId`),
   KEY `CustomersId` (`CustomersId`),
   KEY `ItemId` (`ItemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 
 
@@ -1335,7 +1188,14 @@ INSERT INTO `products`(`ProductsId`,`ProductName`,`Price`,`CustomersId`,`Active`
 ('36','fsdfssfs','2','63','yes','13'),
 ('37','esfs','2','63','yes','14'),
 ('38','book','2.5','92','yes','6'),
-('39','mobile','2','92','yes','11');
+('39','mobile','2','92','yes','11'),
+('40','Hot Towel','2','25','yes','15'),
+('41','Hot Towel','0','93','yes','15'),
+('42','Hot Towel','0','63','yes','15'),
+('43','Hot Towel','3','87','yes','15'),
+('44','Hot Towel','3','91','yes','15'),
+('45','Hot Towel','3','92','yes','15'),
+('46','Hot Towel','2','94','yes','15');
 
 
 
@@ -1481,7 +1341,7 @@ CREATE TABLE `supplier` (
   `VatNo` text,
   PRIMARY KEY (`SupplierId`),
   KEY `TaxId` (`TaxId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 
 
@@ -1620,7 +1480,7 @@ CREATE TABLE `users` (
 
 
 INSERT INTO `users`(`id`,`name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`,`role`) VALUES
-('4','r','r@r.r','$2y$10$3bA5/CJVhNVv7ur/S.P4Cesvr88HZKKg2ZkAbagAgrB9vFbjkzUtK','MIihmy7rwAzB0zOtzfZwXnrsuKxwMveqLaNwV0K0ltnmRvLuuGl0C0ygfZ3S','2016-08-06 17:10:05','2016-10-08 09:33:00','admin'),
+('4','r','r@r.r','$2y$10$3bA5/CJVhNVv7ur/S.P4Cesvr88HZKKg2ZkAbagAgrB9vFbjkzUtK','g821BltuomTHMbpZBmnRdLsPshvIWblyFSCl8gdQGmwkwgSm6BJVFPJhKfCP','2016-08-06 17:10:05','2016-10-12 16:20:57','admin'),
 ('5','s','s@s.s','123456',NULL,'2016-08-09 16:58:00',NULL,'employee'),
 ('7','a','a@a.a','$2y$10$rLHlcZQNU0l2FTsb74J/yuQx/Loht0FpSk1Z2V9CCeaE3jFKthsYS',NULL,'2016-08-09 10:45:50','2016-08-09 10:45:50',''),
 ('9','b','b@b.b','$2y$10$xJnnBbglnf.vq5A85XkpVe9TTyXMeqXbkXerggsy6oEq96vmzLOne',NULL,'2016-08-09 10:47:50','2016-08-09 10:47:50',''),
@@ -1659,7 +1519,7 @@ CREATE TABLE `weekdaychange` (
   `WeekDateUpdateDate` date DEFAULT NULL,
   PRIMARY KEY (`WeekDayChangeId`),
   KEY `CustomersId` (`CustomersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 
 
@@ -1674,8 +1534,18 @@ INSERT INTO `weekdaychange`(`WeekDayChangeId`,`CustomersId`,`WeekDateUpdateStrin
 ('5','92','1_','2016-09-24'),
 ('6','92','1_2_','2016-09-25'),
 ('7','92','1_2_3_','2016-09-30'),
-('8','25','1_3_4_5_','2016-01-01'),
-('9','51','1_2_3_','2016-06-01');
+('10','93','2_3_4_','2016-10-12'),
+('11','25','3_5_','2016-01-01'),
+('12','40','2_3_4_6_','2016-10-12'),
+('13','47','3_5_','2016-10-12'),
+('14','63','1_2_3_5_7_','2016-10-12'),
+('15','61','1_3_5_7_','2016-10-12'),
+('16','87','2_4_6_','2016-10-12'),
+('17','91','2_4_6_','2016-10-12'),
+('18','90','1_2_3_','2016-10-12'),
+('20','94','1_3_4_6_','2016-08-13'),
+('21','25','1_3_4_','2016-10-13'),
+('23','94','1_3_6_','2016-10-14');
 
 
 

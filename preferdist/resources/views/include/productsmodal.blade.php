@@ -31,8 +31,8 @@
 
 								            <tr>								            
 
-								                <th>ProductsId</th>
-								                <th>ProductName</th>
+								                <th>Id</th>
+								                <th>Name</th>
 								                <th>Price</th>
 								                <th>CustomersId</th>
 								                <th>Active</th>
@@ -48,8 +48,8 @@
 								        <tfoot>
 								            <tr>
 
-								                <th>ProductsId</th>
-								                <th>ProductName</th>
+								                <th>Id</th>
+								                <th>Name</th>
 								                <th>Price</th>
 								                <th>CustomersId</th>
 								                <th>Active</th>

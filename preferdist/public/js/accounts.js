@@ -92,7 +92,28 @@ var newtaxtable=$('#newtaxmodal #newtaxtable').DataTable( {
 
 	    } );
 
+function refresh_Tax_option(){
 
+
+
+    $.ajax({
+           type: "POST",
+           url: 'taxcodeoption',
+           //data: {"action": "newcust",formdatas:dataa}, // serializes the form's elements.
+           success: function(data)
+           {
+               //alert(JSON.stringify(data) ); // show response from the php script.
+               //console.log(JSON.stringify(data) ); // show response from the php script.
+
+
+               $("#newcustomermodal #TaxCode").html(data); 
+               $("#newsuppliermodal #TaxId").html(data); 
+           }
+         });
+
+
+
+}
 
 $(document).on( "click","#newtaxmodal #newtaxSave",function() {
 
@@ -151,7 +172,7 @@ $(document).on( "click","#newtaxmodal #newtaxSave",function() {
 				$("#newtaxmodal #Description").val("");
 
 
-
+				refresh_Tax_option();
 
 		    });
 
@@ -346,7 +367,7 @@ function deletenewtaxtable(TaxId) {
          })
     .done(function(response){
 
-    	
+    	refresh_Tax_option();
 
     });
 
@@ -441,7 +462,28 @@ var newnominaltable=$('#newnominalmodal #newnominaltable').DataTable( {
 	    } );
 
 
+	function refresh_Nominal_option(){
 
+
+
+	    $.ajax({
+	           type: "POST",
+	           url: 'nominaloption',
+	           //data: {"action": "newcust",formdatas:dataa}, // serializes the form's elements.
+	           success: function(data)
+	           {
+
+
+	               	$("#newcustomermodal #NominalCode").html(data); 
+               		$("#newsuppliermodal #NominalId").html(data); 
+	           }
+	         });
+
+
+		
+
+
+	}
 
 
 $(document).on( "click","#newnominalmodal #newNominalSave",function() {
@@ -493,7 +535,7 @@ $(document).on( "click","#newnominalmodal #newNominalSave",function() {
 		    	$("#newnominalmodal #NominalCode").val("");
 				$("#newnominalmodal #CodeDescription").val("");
 
-
+				refresh_Nominal_option();
 		    });
 
 	
@@ -674,7 +716,7 @@ function deletenewnominaltable(NominalId) {
          })
     .done(function(response){
 
-    	
+    		refresh_Nominal_option();
 
     });
 

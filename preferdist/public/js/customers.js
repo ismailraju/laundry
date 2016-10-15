@@ -417,6 +417,7 @@ $(document).on( "click","#newcustomermodal  #customerSaveButton",function() {
                //alert(JSON.stringify(data)); // show response from the php script.
                toastr.success('Successfully updated \n');
                $("#newcustomermodal").modal("hide");
+               refresh_Customer_option();
            }
          });
 
@@ -517,7 +518,7 @@ function deletecustomer(CustomersId,CustomerName) {
 			   // console.log(">>done<<");
 
 
-			    
+			    refresh_Customer_option();
 				
 			}
 	  	)
@@ -567,7 +568,7 @@ function taxCodeOption(){
                //console.log(JSON.stringify(data) ); // show response from the php script.
 
 
-               $("#TaxCode").html(data);
+               $("#newcustomermodal #TaxCode").html(data);
            }
          });
 
@@ -698,6 +699,81 @@ $('#newcustomermodal').on('keydown', 'input,select,textarea', function(e) {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+function refresh_Customer_option(){
+
+
+	$.ajax({
+		url:"customersOption",
+		type:'POST',
+		//dataType: "json",
+		//dataType: "Array",
+		//data:data,
+		success:function(response) {
+				//alert(JSON.stringify(response));
+				$("#tabs-1 #customeroption").html(response);
+				$("#tabs-2 #previousdeliverycustomeroption").html(response);
+				$("#tabs-4 #statementbycustomercustomeroption").html(response);
+				$("#productsMastermodal #CustomersName").html(response);
+
+				//customeridd=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
+				//tableconfigure(customeridd);
+
+				// $("#tabs-1 #customeroption").select2();
+				// $("#tabs-2 #previousdeliverycustomeroption").select2();
+				// $("#tabs-4 #statementbycustomercustomeroption").select2();
+
+				}
+
+		})
+		.done(
+			function( response ) {
+
+			    console.log(">>done<<");
+
+			
+
+
+		})
+	  
+	  	.fail(
+	  			function( xhr, status, errorThrown ) {
+				    alert( "Sorry, there was a problem!" );
+				    console.log( "Error: " + errorThrown );
+				    console.log( "Status: " + status );
+				    console.dir( xhr );
+		})
+	  
+	  	.always(
+	  			function( xhr, status ) {
+	  				console.log(">>always<<");
+	  	
+		});
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*$('#newcustomermodal').on('keydown', 'input, select, textarea', function(e) {

@@ -1,7 +1,8 @@
-.supplier_search{
+#supplierMastermodal .supplier_search{
 
 
-	width: 100px;
+	width: 50px;
+	padding: 0px;
 }
 #purchasediv{
 	float: right;

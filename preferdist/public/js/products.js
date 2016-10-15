@@ -6,6 +6,8 @@ var customeridd=1;
 customerlist();
 itemOptionlist();
 
+$("#productsMastermodal #CustomersName").select2();
+
 function customerlist(){
 
 

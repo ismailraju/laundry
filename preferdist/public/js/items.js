@@ -183,7 +183,7 @@ $(document).on( "click","#newItemCatagorymodal  #ItemCategorySave",function() {
     	$("#ItemCategoryName").val("");
     	toastr.success('Successfully added \n');
 
-
+    	itemcategoryoption();
     });
 
         
@@ -375,7 +375,7 @@ function deletecatagorylisttable(ItemCategoryId) {
          })
     .done(function(response){
 
-    	
+    	itemcategoryoption();
 
     });
 
@@ -597,7 +597,7 @@ function deleteitemlisttable(ItemId) {
          })
     .done(function(response){
 
-    	
+    	refresh_items_Option();
 
     });
 
@@ -615,7 +615,7 @@ $(document).on( "click","#NewItemmodal  #NewItemSaveButton",function() {
 	//alert($("#newitemform").serialize());
 	//console.log($("#newitemform").serialize());
 
-	alert($("#NewItemmodal").attr("ItemId"));
+	//alert($("#NewItemmodal").attr("ItemId"));
 	var ItemId=$("#NewItemmodal").attr("ItemId");
 	
     var url = "receiver.php"; // the script where you handle the form input.
@@ -634,6 +634,8 @@ $(document).on( "click","#NewItemmodal  #NewItemSaveButton",function() {
                toastr.success('Successfully added \n');
                $("#itemMastermodal").modal("show");
                $("#NewItemmodal").modal("hide");
+
+               refresh_items_Option();
            }
          });
 	
@@ -787,7 +789,7 @@ $(document).on( "click","#newItemUnitmodal  #ItemUnitSave",function() {
 
     	$("#ItemUnit").val("");
 
-
+    	itemunitoption();
     });
 
         
@@ -940,7 +942,7 @@ function deleteitemunitlisttable(ItemUnitId) {
          })
     .done(function(response){
 
-    	
+    	itemunitoption();
 
     });
 
@@ -1094,7 +1096,30 @@ $('#NewItemmodal .modal-body').on('keydown', 'input,select,textarea', function(e
 });
 
 
+	function refresh_items_Option(){
 
+
+
+	    $.ajax({
+	           type: "POST",
+	           url: 'itemsOption',
+	           //data: {"action": "newcust",formdatas:dataa}, // serializes the form's elements.
+	           success: function(data)
+	           {
+	              // alert(JSON.stringify(data) ); // show response from the php script.
+	               //console.log(JSON.stringify(data) ); // show response from the php script.
+
+
+	               $("#newpurchasemastermodal #ItemId").html(data);
+	               $("#newproductsmodal #ProductsName").html(data);
+	           }
+	         });
+
+
+		
+
+
+	}
 
 
 

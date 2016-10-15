@@ -33,7 +33,7 @@
 					       			<span style="color:red;"><label class="SupplierName"  for="SupplierName">SupplierName(*):</label></span>
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="SupplierName" id="SupplierName"  name="SupplierName" placeholder="SupplierName">
+									<input type="text" class="SupplierName form-control" id="SupplierName"  name="SupplierName" placeholder="SupplierName">
 									</div>
 									</div></div>
 
@@ -48,7 +48,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="Address" id="Address"  name="Address" placeholder="Address">
+									<input type="text" class="Address form-control" id="Address"  name="Address" placeholder="Address">
 									</div>
 									</div></div>
 									
@@ -62,7 +62,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="City" id="City"  name="City" placeholder="City">
+									<input type="text" class="City form-control" id="City"  name="City" placeholder="City">
 									</div>
 									</div></div>
 									
@@ -76,7 +76,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="Country" id="Country"  name="Country" placeholder="Country">
+									<input type="text" class="Country form-control" id="Country"  name="Country" placeholder="Country">
 									</div>
 									</div></div>
 									
@@ -90,7 +90,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="PostCode" id="PostCode"  name="PostCode" placeholder="PostCode">
+									<input type="text" class="PostCode form-control" id="PostCode"  name="PostCode" placeholder="PostCode">
 									</div>
 									</div></div>
 
@@ -107,7 +107,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="ContactPerson" id="ContactPerson"  name="ContactPerson" placeholder="ContactPerson">
+									<input type="text" class="ContactPerson form-control" id="ContactPerson"  name="ContactPerson" placeholder="ContactPerson">
 									</div>
 									</div></div>
 
@@ -124,7 +124,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="PhoneNo" id="PhoneNo"  name="PhoneNo" placeholder="PhoneNo">
+									<input type="text" class="PhoneNo form-control" id="PhoneNo"  name="PhoneNo" placeholder="PhoneNo">
 									</div>
 									</div></div>
 
@@ -152,7 +152,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="Email" id="Email"  name="Email" placeholder="Email">
+									<input type="text" class="Email form-control" id="Email"  name="Email" placeholder="Email">
 									</div>
 									</div></div>
 
@@ -188,12 +188,11 @@
 
 								
 
-									<select type="text" class="" id="TaxId" name="TaxId" >
+									<select type="text" class="form-control" id="TaxId" name="TaxId" >
 	 
 		     					
+		     						</select>
 		     						
-
-		     						 	</select>
 									</div>
 									</div></div>
 
@@ -213,7 +212,7 @@
 
 								
 
-									<select type="text" class="" id="NominalId" name="NominalId" >
+									<select type="text" class="form-control" id="NominalId" name="NominalId" >
 	 
 		     					
 		     						 
@@ -236,7 +235,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<input type="text" class="Creditlimit" id="Creditlimit"  name="Creditlimit" placeholder="Creditlimit">
+									<input type="text" class="Creditlimit form-control" id="Creditlimit"  name="Creditlimit" placeholder="Creditlimit">
 									</div>
 									</div></div>
 
@@ -251,7 +250,7 @@
 					       			<span style="color:red;"><label class="Active"  for="Active">Active:</label></span>
 
 					       			</div><div class="col-sm-8">
-					       			<select class="Active" id="Active"  name="Active" >
+					       			<select class="Active form-control" id="Active"  name="Active" >
 					       				<option value="yes">Yes</option>
 					       				<option value="no">No</option>
 
@@ -275,7 +274,7 @@
 
 					       			</div><div class="col-sm-8">
 
-									<textarea type="text" class="Notes" id="Notes"  name="Notes" placeholder="Notes"></textarea> 
+									<textarea type="text" class="Notes form-control" id="Notes"  name="Notes" placeholder="Notes"></textarea> 
 									</div>
 									</div></div>
 
@@ -342,7 +341,7 @@
 				
 								      <thead>
 
-								            <tr>
+								            <!-- <tr>
 								                <th>SupplierId</th>
 								                <th>SupplierName</th>
 								                <th>Address</th>
@@ -359,6 +358,30 @@
 								                <th>TaxCode</th>
 								                <th>TaxDescription</th>
 								                <th>NominalId</th>
+								                <th>NominalCode</th>
+								                <th>ACTION</th>
+								            
+								               
+								            </tr>
+								             -->
+
+								            <tr>
+								                <th>Id</th>
+								                <th>Name</th>
+								                <th>Addres</th>
+								                <th>City</th>
+								                <th>Country</th>
+								                <th>PostCod</th>
+								                <th>ContactPerson</th>
+								                <th>PhoneNo</th>
+								                <th>Email</th>
+								                <th>Notes</th>
+								                <th>Active</th>
+								                <th>Creditlimit</th>
+								                <th>TaxId</th>
+								                <th>TaxCode</th>
+								                <th>TaxDescript</th>
+								                <th>Nominal</th>
 								                <th>NominalCode</th>
 								                <th>ACTION</th>
 

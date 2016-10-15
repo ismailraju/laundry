@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
 
 
 /////////////////////////////////new supplier  modal end/////////////////
+$("#newpurchasemastermodal #SupplierId").select2();
 
 
 $(document).on( "click","#newsuppliermodal  #NewSupplierSaveButton",function() {
@@ -60,7 +61,7 @@ $("#newsuppliermodal").on("shown.bs.modal",function (e) {
 $("#newsuppliermodal").on("hidden.bs.modal",function (e) { 
 
 		
-        $("#supplierMastermodal").modal("show");     
+        $("#supplierMastermodal").modal("show");
 
 
 	});

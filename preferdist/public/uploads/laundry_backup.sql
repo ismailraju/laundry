@@ -1,6 +1,6 @@
 #Laundry Management MySQL database backup
 
-# Generated: Friday 14. October 2016 15:41 UTC  Laundry Management
+# Generated: Saturday 15. October 2016 17:13 UTC  Laundry Management
 # --------------------------------------------------------
 
 SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
@@ -54,7 +54,7 @@ CREATE TABLE `customers` (
   `RegistrationDate` date NOT NULL,
   PRIMARY KEY (`CustomersId`),
   KEY `CompaniesId` (`CompaniesId`)
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 
 
 
@@ -78,7 +78,9 @@ INSERT INTO `customers`(`CustomersId`,`CustomerNumber`,`CompaniesId`,`CustomerNa
 ('91','100','1','Fuad','canada','canada','','1206','canadacanada','canada','','canada@gmail.com','016438295','customr','yes','28',NULL,'1','1','','FixedBill','monthly','2000','yes','2_4_6_','on','0','0','fortnight','2016-01-01'),
 ('92','20','1','ASIF','ASIF address','ASIF city','','12060','ASIF PS','0167435859','','ASIF@ASIF.ASIF','0155555555555','very good boy','yes','57',NULL,'2','2','','FixedBill','monthly','40000','yes','1_2_3_','on','0','0','fortnight','2016-09-24'),
 ('93','22','1','asiq','asiq','asiq','','1206','asiqasiq','01674599855','','asiq','12','hot towel test','yes','4',NULL,'1','1','','FixedBill','yearly','200','yes','2_3_4_','on','0','0','fortnight','2016-10-12'),
-('94','100','1','rubel','rubel','rubel','','rubel','rubel','rubel','','rubel','rubelrubel','fdghdfh','yes','122',NULL,'1','1','','FixedBill','yearly','22','no','1_3_6_','',NULL,NULL,'','2016-08-13');
+('94','100','1','rubel','rubel','rubel','','rubel','rubel','rubel','','rubel','rubelrubel','fdghdfh','yes','122',NULL,'1','1','','FixedBill','yearly','22','no','1_3_6_','',NULL,NULL,'','2016-08-13'),
+('95','10','1','shourob','shourob','shourob','','shourob','shourob','shourob','','shourob','shourob','dfgdfh','yes','0',NULL,'1','1','','FixedBill','yearly','200','no','2_4_6_','',NULL,NULL,'','2016-10-15'),
+('96','d','1','dDDDDDDDD','d','Dd','','d','d','d','','d','d','wefef','yes','11',NULL,'1','1','','FixedBill','yearly','200','no','2_4_6_','',NULL,NULL,'','2016-10-15');
 
 
 
@@ -727,7 +729,7 @@ CREATE TABLE `item` (
   PRIMARY KEY (`ItemId`),
   KEY `ItemCategoryId` (`ItemCategoryId`),
   KEY `ItemUnitId` (`ItemUnitId`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 
 
@@ -813,7 +815,7 @@ CREATE TABLE `itemcategory` (
   `ItemCategoryId` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `ItemCategory` text,
   PRIMARY KEY (`ItemCategoryId`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 
 
@@ -831,7 +833,6 @@ INSERT INTO `itemcategory`(`ItemCategoryId`,`ItemCategory`) VALUES
 ('4','sports'),
 ('5','HOUSEhouse'),
 ('6','animal'),
-('14','ffffff'),
 ('16','dgd'),
 ('17','ere'),
 ('18','fhf'),
@@ -842,7 +843,6 @@ INSERT INTO `itemcategory`(`ItemCategoryId`,`ItemCategory`) VALUES
 ('23','rhhh1'),
 ('39','tttt'),
 ('40','DDDDDDDDDDD'),
-('41','fffffffffFFFFFFFF'),
 ('42','SSWWWRRRTT'),
 ('44','wedd');
 
@@ -868,7 +868,7 @@ CREATE TABLE `itemunit` (
   `ItemUnitId` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `ItemUnit` text,
   PRIMARY KEY (`ItemUnitId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 
 
@@ -883,8 +883,7 @@ INSERT INTO `itemunit`(`ItemUnitId`,`ItemUnit`) VALUES
 ('1','kg'),
 ('2','eacH'),
 ('3','letter'),
-('4','Piece'),
-('7','dss');
+('4','Piece');
 
 
 
@@ -987,7 +986,7 @@ CREATE TABLE `nominal` (
   `NominalCode` text,
   `CodeDescription` text,
   PRIMARY KEY (`NominalId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 
 
@@ -1001,7 +1000,8 @@ CREATE TABLE `nominal` (
 INSERT INTO `nominal`(`NominalId`,`NominalCode`,`CodeDescription`) VALUES
 ('1','5556','car'),
 ('2','5461','fuel'),
-('3','5588','VISIT');
+('3','5588','VISIT'),
+('4','4444','fao');
 
 
 
@@ -1154,7 +1154,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`ProductsId`),
   KEY `CustomersId` (`CustomersId`),
   KEY `ItemId` (`ItemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 
 
 
@@ -1195,7 +1195,9 @@ INSERT INTO `products`(`ProductsId`,`ProductName`,`Price`,`CustomersId`,`Active`
 ('43','Hot Towel','3','87','yes','15'),
 ('44','Hot Towel','3','91','yes','15'),
 ('45','Hot Towel','3','92','yes','15'),
-('46','Hot Towel','2','94','yes','15');
+('46','Hot Towel','2','94','yes','15'),
+('47','Hot Towel','2','95','yes','15'),
+('48','Hot Towel','2','96','yes','15');
 
 
 
@@ -1353,9 +1355,9 @@ CREATE TABLE `supplier` (
 
 
 INSERT INTO `supplier`(`SupplierId`,`CompanyId`,`SupplierName`,`Address`,`City`,`Country`,`PostCode`,`ContactPerson`,`PhoneNo`,`FaxNumber`,`Email`,`Notes`,`Active`,`Creditlimit`,`DueSettlement`,`TaxId`,`NominalId`,`VatNo`) VALUES
-('1','1','garmenS','kachukhet','dhaka','bd','1902','kalam','0184575955','nkoun','kalam@gmail.com','hamum','yes','2000',NULL,'1','2','132'),
-('2','1','RFL','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','1',''),
-('5','1','Plastic BD','Dhaka','dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','1','');
+('1','1','garmenS','kachukhet','Dhaka','bd','1902','kalam','0184575955','nkoun','kalam@gmail.com','Halum','yes','2001',NULL,'1','3','132'),
+('2','1','RFL','Dhaka','Dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','3',''),
+('5','1','Plastic BD','Dhaka','Dhaka','BD','1206','MOFIJ','016743595665','HJFC','ASSDD@SDF.FSDF','plastic tools','yes','500',NULL,'2','3','');
 
 
 
@@ -1381,7 +1383,7 @@ CREATE TABLE `tax` (
   `Rate` int(11) DEFAULT NULL,
   `Description` text,
   PRIMARY KEY (`TaxId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
 
@@ -1396,7 +1398,8 @@ INSERT INTO `tax`(`TaxId`,`TaxCode`,`Rate`,`Description`) VALUES
 ('1','A','12','annual Tax'),
 ('2','B','24','monthly tax'),
 ('3','C','43','weetly tax'),
-('4','Dd','21','two year5');
+('4','Dd','21','two year5'),
+('6','4444','2','income');
 
 
 
@@ -1519,7 +1522,7 @@ CREATE TABLE `weekdaychange` (
   `WeekDateUpdateDate` date DEFAULT NULL,
   PRIMARY KEY (`WeekDayChangeId`),
   KEY `CustomersId` (`CustomersId`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 
 
@@ -1545,7 +1548,9 @@ INSERT INTO `weekdaychange`(`WeekDayChangeId`,`CustomersId`,`WeekDateUpdateStrin
 ('18','90','1_2_3_','2016-10-12'),
 ('20','94','1_3_4_6_','2016-08-13'),
 ('21','25','1_3_4_','2016-10-13'),
-('23','94','1_3_6_','2016-10-14');
+('23','94','1_3_6_','2016-10-14'),
+('24','95','2_4_6_','2016-10-15'),
+('25','96','2_4_6_','2016-10-15');
 
 
 

@@ -147,7 +147,7 @@ class QueryController extends Controller
 		//$customers = DB::select('select * from customers');
 		//return json_encode($customers);
 
-		$HotTowelItemName="Hot Towel";
+		$HotTowelItemName="HOT TOWEL";
 
     	$formdatas = $_POST['formdatas'];
 		    parse_str($formdatas);
@@ -169,7 +169,7 @@ class QueryController extends Controller
 				echo $Creditlimit;
 				echo $Active;
 
-
+//return json_encode($Active);
 				$days="";
 
 				if (isset($sat)) { echo $sat;$days=$days."1_";} 
@@ -413,6 +413,10 @@ class QueryController extends Controller
 
 		$CustomersId = $_POST['CustomersId'];
 
+		DB::table('products')
+			->where('CustomersId', "$CustomersId")
+			->delete();
+			
 		DB::table('weekdaychange')
 			->where('CustomersId', "$CustomersId")
 			->delete();
@@ -1296,42 +1300,7 @@ class QueryController extends Controller
 				->get();
 
 
-/*
-			len_products=sizeof($products);
 
-			for ($i=0; $i <sizeof($products) ; $i++) { 
-				$ItemId=$products[$i]->ItemId;
-
-
-				$arrayName1 = array(
-					'ProductsId' 	=> $products[$i]->ProductsId,
-					'ProductName'	=> $products[$i]->ProductName,
-					'Price' 		=> $products[$i]->Price,
-					'CustomersId' 	=> $products[$i]->CustomersId,
-					'Active' 		=> $products[$i]->Active,
-					'ItemId' 		=> $products[$i]->ItemId,
-
-					'day1' 			=> 0,
-					'quantity1' 	=> 0,
-					'extra1' 		=> 0,
-					'damage1' 		=> 0,
-
-					'day2' 			=> 0,					
-					'quantity2' 	=> 0,
-					'extra2' 		=> 0,
-					'damage2' 		=> 0,
-
-					'day3' 			=> 0,					
-					'quantity3' 	=> 0,
-					'extra3' 		=> 0,
-					'damage3' 		=> 0,
-					 );
-
-
-				array_push($result,$arrayName1);
-
-			}		
-*/
 			
 
 			for ($i=0; $i <sizeof($products) ; $i++) { 
@@ -1365,6 +1334,8 @@ class QueryController extends Controller
 
 					//$temparray=[];
 
+				//return json_encode($InvoicesIds);
+
 				for ($ii=0; (($ii <sizeof($InvoicesIds)) && ($ii<3 )); $ii++) {
 
 
@@ -1372,6 +1343,7 @@ class QueryController extends Controller
 					$InvoiceDate=$InvoicesIds[$ii]->InvoiceDate;
 
 
+				//return json_encode($InvoiceDate);
 
 					$invoicedetails = DB::table('invoicedetails')
 						->select('InvoicesId','Quantity','Extra','Damage')
@@ -1379,10 +1351,13 @@ class QueryController extends Controller
 		                ->where('ItemId',"$ItemId")
 		                ->get();
 
+		            //return json_encode(json_encode($ItemId)."  ".json_encode($InvoicesId1)."  ".json_encode($invoicedetails));
+
+		            	$predeliveryunitarray["day".($ii+1)]=$InvoiceDate;
 
 		                if(sizeof($invoicedetails)>0){
 
-				           	$predeliveryunitarray["day".($ii+1)		]	=$InvoiceDate;
+				           	//$predeliveryunitarray["day".($ii+1)		]	=$InvoiceDate;
 				           	$predeliveryunitarray["quantity".($ii+1)]	=$invoicedetails[0]->Quantity;
 				           	$predeliveryunitarray["extra".($ii+1)	]	=$invoicedetails[0]->Extra;
 				           	$predeliveryunitarray["damage".($ii+1)	]	=$invoicedetails[0]->Damage;
@@ -1390,32 +1365,13 @@ class QueryController extends Controller
 		                }
 
 
-
-
-
-/*
-		           	$day="day".($ii+1);
-		           	$quantity="quantity".($ii+1);
-					$extra="extra".($ii+1);
-					$damage="damage".($ii+1);
-
-		           	$arrayNamep = array(
-		           		"$day" 			=>$InvoiceDate ,
-		           		"$quantity" 	=>$invoicedetails[0]->Quantity ,
-		           		"$extra" 		=>$invoicedetails[0]->Extra ,
-		           		"$damage" 		=>$invoicedetails[0]->Damage 
-		           		 );
-
-		       
-		           	$temparray = array_merge( (array)$temparray, (array)$arrayNamep );
-*/
 		           	//return json_encode($temparray);
 
 
 				}////pre delivery loop end
 
 
-
+				//return json_encode($predeliveryunitarray);
 
 
 			$p = array_merge( (array)$products[$i], (array)$predeliveryunitarray );
@@ -1988,12 +1944,13 @@ return json_encode($st);
 											'Quantity'		=> "$Quantity",
 											'Extra'			=> "$Extra",
 											'Damage'		=> "$Damage",
+											'Price'			=> "$Price",
 											'PricePerUnit'	=> "$TotalAmount",
 											'Flag'			=> "no"
 											
 											]);
 
-								 echo json_encode("yyy  ");
+								 //echo json_encode("yyy  ");
 
 
 	   	 				}
@@ -2092,6 +2049,7 @@ return json_encode($st);
 											'Quantity'		=> "$Quantity",
 											'Extra'			=> "$Extra",
 											'Damage'		=> "$Damage",
+											'Price'			=> "$Price",
 											'PricePerUnit'	=> "$TotalAmount",
 											'Flag'			=> "no"
 											

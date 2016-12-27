@@ -24,7 +24,7 @@ function totalcountfrommodifyarray(){
 	    sum=sum+parseFloat(el.TotalAmount);
 	});
 
-	return parseFloat(sum);
+	return parseFloat(sum).toFixed(2);
 
 }
 
@@ -196,7 +196,7 @@ function previousdeliverynotemodifyinfoshow(InvoicesId ){
 			},
 			success:function(response) {
 					//alert(JSON.stringify(response));
-					console.log	(JSON.stringify(response));
+					//console.log	(JSON.stringify(response));
 						
 						modifypreviousdeliverynotetable.clear().draw();
 						modifypreviousdeliverynotetable.rows.add( response ).draw();
@@ -228,8 +228,8 @@ function previousdeliverynotemodifyinfoshow(InvoicesId ){
 	              						});
 						}
 
-						console.log("ekhane dekho"+JSON.stringify(P_D_N_array));
-						alert(JSON.stringify(P_D_N_array));
+						//console.log("ekhane dekho"+JSON.stringify(P_D_N_array));
+						//alert(JSON.stringify(P_D_N_array));
 
 						$( "#modifypreviousdeliverynotemodal #PreviousDeliveryNoteTotal").text(totalcountfrommodifyarray());
 						
@@ -643,7 +643,7 @@ if(val){
 	    	el.Quantity=val;
 
 
-	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price));
+	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price)).toFixed(2);
 	    	el.TotalAmount=total;
 	    	
 	    	return true;
@@ -655,10 +655,10 @@ if(val){
 	});
 
 
-	alert(JSON.stringify(P_D_N_array));
+	//alert(JSON.stringify(P_D_N_array));
 
 
-	$( "#modifypreviousdeliverynotetable tbody tr:nth-child("+(row+1)+") td:nth-child("+(clm_total_amount+1)+")" ).text( "£"+(total).toFixed(2) );
+	$( "#modifypreviousdeliverynotetable tbody tr:nth-child("+(row+1)+") td:nth-child("+(clm_total_amount+1)+")" ).text( "£"+(total) );
 	//$( "#modifypreviousdeliverynotemodal #PreviousDeliveryNoteTotal").text( total );
 
 
@@ -676,7 +676,7 @@ if(val){
 	    if((parseInt(el.ProductsId) == parseInt(data.ProductsId))){
 
 	    	el.Extra=val;
-	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price));
+	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price)).toFixed(2);
 	    	el.TotalAmount=total;
 	    	return true;
 	    }
@@ -798,7 +798,7 @@ $("#modifypreviousdeliverynotemodal #PreviousDeliveryNoteSaveBtn").on("click",""
 
 
 
-	alert(InvoicesId+" "+PreviousDeliveryNoteDate+" ");
+	//alert(InvoicesId+" "+PreviousDeliveryNoteDate+" ");
 
 
 		$.ajax({
@@ -815,7 +815,7 @@ $("#modifypreviousdeliverynotemodal #PreviousDeliveryNoteSaveBtn").on("click",""
 
 			},
 			success:function(response) {
-					alert(JSON.stringify(response));
+					//alert(JSON.stringify(response));
 
 					if(response=="ok"){
 						  toastr.success('Successfully added \n');
@@ -911,46 +911,45 @@ function previousdeliverynotepdfcustomerinforequest(invoicedata,itemsdata){
 
 
 
-function previousdeliverynotepdf(invoicedata,itemsdata,customersinfo){
+function previousdeliverynotepdf(CustomersId,InvoiceId,deliverynotedate){
 
-		var deliverynotedate=$("#tabs-1 #deliverynotedate").datepicker( "getDate" );
-		deliverynotedate=moment(deliverynotedate).format("YYYY-MM-DD");
+		//var deliverynotedate=$("#tabs-1 #deliverynotedate").datepicker( "getDate" );
+		//deliverynotedate=moment(deliverynotedate).format("YYYY-MM-DD");
 		
 		
 		//alert(JSON.stringify(invoicedata));
-		console.log(JSON.stringify(invoicedata));
+		//console.log(JSON.stringify(invoicedata));
 
 		//alert(JSON.stringify(itemsdata));
-		console.log(JSON.stringify(itemsdata));
+		//console.log(JSON.stringify(itemsdata));
 
 		//alert(JSON.stringify(customersinfo));
-		console.log(JSON.stringify(customersinfo));
+		//console.log(JSON.stringify(customersinfo));
 
 
-//return;
-		//alert(JSON.stringify(totalallamount));
-
-
-				
-//return;
 	 var mapForm = document.createElement("form");
 	   // mapForm.target = "Map";
-	    mapForm.style = "display:none;";
+	   	mapForm.class = "deleteKorteHobe";
+	   	mapForm.type = "hidden";
 	    mapForm.target = "Map";
+	    //mapForm.method = "GET"; // or "post" if appropriate
 	    mapForm.method = "GET"; // or "post" if appropriate
 	    mapForm.action = "deleverynotepdf";
-	    //mapForm.action = "http://localhost/appointment/wp-content/plugins/first-plugin/mpdf/my.php";
+
+
+
+
 
 	    var mapInput = document.createElement("input");
 	    mapInput.type = "text";
-	    mapInput.name = "quantitylistarray";
-	    mapInput.value = JSON.stringify(itemsdata, null, 2);;
+	    mapInput.name = "CustomersId";
+	    mapInput.value = CustomersId;
 	    mapForm.appendChild(mapInput);
 
 	    var mapInput = document.createElement("input");
 	    mapInput.type = "text";
-	    mapInput.name = "customersinfo";
-	    mapInput.value = JSON.stringify(customersinfo, null, 2);;
+	    mapInput.name = "InvoiceId";
+	    mapInput.value = InvoiceId;
 	    mapForm.appendChild(mapInput);
 
 
@@ -958,7 +957,7 @@ function previousdeliverynotepdf(invoicedata,itemsdata,customersinfo){
 	    mapInput = document.createElement("input");
 	    mapInput.type = "text";
 	    mapInput.name = "deliverynotedate";
-	    mapInput.value = invoicedata.InvoiceDate;
+	    mapInput.value = deliverynotedate;
 	    mapForm.appendChild(mapInput);
 
 ////////////////////////////////////////////////////////////////////
@@ -973,7 +972,6 @@ function previousdeliverynotepdf(invoicedata,itemsdata,customersinfo){
 		} else {
 		    alert('You must allow popups for this map to work.');
 		}
-
 }
 
 
@@ -1096,7 +1094,14 @@ $("#previousdeliverynotepdfbtn").on("click","",function(){
 
  	 	//alert( JSON.stringify(data) );
 
- 	 	previousdeliverynotepdfiteminfo(data);
+ 	 	//previousdeliverynotepdfiteminfo(data);
+
+ 	 	CustomersId=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
+
+ 	 	InvoicesId=data.InvoicesId;
+		InvoicesDate=data.InvoiceDate;
+
+ 	 	previousdeliverynotepdf(CustomersId,InvoicesId,InvoicesDate);
 
 
  	 }else if (data==null) {

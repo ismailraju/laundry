@@ -1,20 +1,73 @@
-<?php  
+<?php namespace resources\views; 
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+use App\Http\Controllers\Controller;
+
+use DB;
+
+use App\myclass\queryclass;
+
+use App\myclass\wrapfuncclass;
+
+
+use mPDF;
+
+
+
 
 $deliverynotedate = $_GET['deliverynotedate'];
 
-$quantitylistarray = $_GET['quantitylistarray'];
-$quantitylistarray = json_decode($quantitylistarray);
+$CustomersId = $_GET['CustomersId'];
 
-$customersinfo = $_GET['customersinfo'];
-$customersinfo = json_decode($customersinfo);
+$InvoicesId = $_GET['InvoiceId'];
+
+				
+$customersinfo=DB::table('customers')
+	->select('*')
+	->where('CustomersId', "$CustomersId")
+	->get();
+
+//$InvoicesId=82;
 
 
-$outputfilename=$deliverynotedate.'_'.$customersinfo[0]->CustomerName.'.pdf' ;
 
-//var_dump( $customersinfo);
-//var_dump(	sizeof(($quantitylistarray)	)	);
+// $quantitylistarray = DB::table('invoicedetails')
+// 			->join('products', 'invoicedetails.ProductsId', '=', 'products.ProductsId')
+// 			->select('*')
+// 			->where('invoicedetails.InvoicesId', "$InvoicesId")
+// 			->where('products.CustomersId', "$CustomersId")
+// 			->get();
 
-//exit;
+
+$quantitylistarray = DB::table('invoicedetails')
+			->join('item', 'invoicedetails.ItemId', '=', 'item.ItemId')
+			->select('item.ItemName', 'invoicedetails.*')
+			->where('invoicedetails.InvoicesId', "$InvoicesId")
+			->get();
+
+$invoicedetails_info = DB::table('invoicedetails')
+		            ->select('*')
+		            ->where('invoicedetails.InvoicesId', "$InvoicesId")
+		            ->get();
+
+
+	
+$invoices_info=DB::table('invoices')
+	->where('InvoicesId', "$InvoicesId")
+	->get();
+
+
+
+
+
+// $outputfilename=$deliverynotedate.'_'.$customersinfo[0]->CustomerName.'.pdf' ;
+
+ 	//var_dump( $invoicedetails_info);
+ 	//var_dump( $invoices_info);
+// var_dump(	sizeof(($quantitylistarray)	)	);
+//var_dump(($quantitylistarray ) );exit;
 
 $tablestr="";
 $QTYtotal=0;
@@ -34,17 +87,17 @@ $AllTotalHotTowel=0;
 
 for ($i=0; $i < sizeof($quantitylistarray); $i++) { 
 	
-	if( ($quantitylistarray[$i]->ProductName)=="Hot Towel"){
+	if( ($quantitylistarray[$i]->ItemName)=="HOT TOWEL"){
 
 
 		$QTYtotalHotTowel= 		$quantitylistarray[$i]->Quantity;
 		$DMGtotalHotTowel= 		$quantitylistarray[$i]->Damage;
 		$EXTRatotalHotTowel= 	$quantitylistarray[$i]->Extra;
-		$AllTotalHotTowel= 		$quantitylistarray[$i]->TotalAmount;
+		$AllTotalHotTowel= 		$quantitylistarray[$i]->PricePerUnit;
 
 
 		$tableHotTowelstr=$tableHotTowelstr.'<tr><td align="center">';
-		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->ProductName);
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->ItemName);
 
 		$tableHotTowelstr=$tableHotTowelstr.'</td><td align="center">';
 		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Quantity);
@@ -59,7 +112,11 @@ for ($i=0; $i < sizeof($quantitylistarray); $i++) {
 		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->Price);
 
 		$tableHotTowelstr=$tableHotTowelstr.'</td><td class="cost">&pound;';
-		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->TotalAmount);
+
+		//$amount_=(  floatval($quantitylistarray[$i]->Quantity) + floatval($quantitylistarray[$i]->Extra)  )* (floatval($quantitylistarray[$i]->PricePerUnit));
+
+		//$tableHotTowelstr=$tableHotTowelstr.($amount_);
+		$tableHotTowelstr=$tableHotTowelstr.($quantitylistarray[$i]->PricePerUnit);
 
 		$tableHotTowelstr=$tableHotTowelstr.'</td></tr>';
 
@@ -69,11 +126,11 @@ for ($i=0; $i < sizeof($quantitylistarray); $i++) {
 		$QTYtotal=	$QTYtotal+	($quantitylistarray[$i]->Quantity);
 		$DMGtotal=	$DMGtotal+	($quantitylistarray[$i]->Damage);
 		$EXTRatotal=$EXTRatotal+	($quantitylistarray[$i]->Extra);
-		$AllTotal=	$AllTotal  +	($quantitylistarray[$i]->TotalAmount);
+		$AllTotal=	$AllTotal  +	($quantitylistarray[$i]->PricePerUnit);
 
 
 		$tablestr=$tablestr.'<tr><td align="center">';
-		$tablestr=$tablestr.($quantitylistarray[$i]->ProductName);
+		$tablestr=$tablestr.($quantitylistarray[$i]->ItemName);
 
 		$tablestr=$tablestr.'</td><td align="center">';
 		$tablestr=$tablestr.($quantitylistarray[$i]->Quantity);
@@ -88,9 +145,16 @@ for ($i=0; $i < sizeof($quantitylistarray); $i++) {
 		$tablestr=$tablestr.($quantitylistarray[$i]->Price);
 
 		$tablestr=$tablestr.'</td><td class="cost">&pound;';
-		$tablestr=$tablestr.($quantitylistarray[$i]->TotalAmount);
+
+
+		//$amount_=(  floatval($quantitylistarray[$i]->Quantity) + floatval($quantitylistarray[$i]->Extra)  )* (floatval($quantitylistarray[$i]->PricePerUnit));
+
+		//$tablestr=$tablestr."". $amount_."";
+		$tablestr=$tablestr."". $quantitylistarray[$i]->PricePerUnit."";
 
 		$tablestr=$tablestr.'</td></tr>';
+
+
 	}
 			
 
@@ -98,7 +162,7 @@ for ($i=0; $i < sizeof($quantitylistarray); $i++) {
 
 //echo ( $tablestr);
 
-//exit;
+//var_dump( $tablestr );exit;
 
 $html = '
 <html>
@@ -348,27 +412,29 @@ $html = '
 	</body>
 
 </html>
-';
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
+// ';
+// //==============================================================
+// //==============================================================
+// //==============================================================
+// //==============================================================
+// //==============================================================
+// //==============================================================
 //echo $html;exit;
 
 
 
-//echo  app_path();
+//echo  app_path().'/Libraries/vendor/autoload.php';exit;
 
+//require 'C:/wamp/www/laravelw/preferdist/app/Libraries/vendor/autoload.php';
 require app_path().'/Libraries/vendor/autoload.php';
-/*
-define('_MPDF_PATH','../');
-//include("../vendor/mpdf/mpdf/mpdf.php");
-include("vendor/mpdf/mpdf/mpdf.php");
-//@include('include.vendor.mpdf.mpdf.mpdf')
+//require app_path().'/Libraries/vendor/autoload.php';
+// /*
+//define('_MPDF_PATH','../');
+// //include("../vendor/mpdf/mpdf/mpdf.php");
+//include(app_path()."/Libraries/vendor/mpdf/mpdf/mpdf.php");
+// //@include('include.vendor.mpdf.mpdf.mpdf')
 
-*/
+// */
 
 $mpdf=new mPDF('c','A4','','',20,15,48,25,10,10); 
 $mpdf->SetProtection(array('print'));
@@ -389,6 +455,6 @@ $mpdf->Output($outputfilename, 'I'); exit;
 
 exit;
 
-//echo $html;
+// //echo $html;
 
 ?>

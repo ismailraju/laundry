@@ -19,7 +19,7 @@ quantitylistarray.filter(function(el) {
 	    sum=sum+parseFloat(el.TotalAmount);
 	});
 
-return parseFloat(sum);
+return parseFloat(sum).toFixed(2);
 
 }
 
@@ -67,8 +67,8 @@ return parseFloat(sum);
 
 					alert(JSON.stringify(response));
 					console.log(JSON.stringify(response));
-				},
-			*/
+				},*/
+			
 				
 
 	        },
@@ -541,6 +541,7 @@ function productlistandpredeliveryallbycustomerid(CustomersId){
 		},
 		success:function(response) {
 				//alert(JSON.stringify(response));
+				//console.log(JSON.stringify(response));
 
 				deliverynotetable.clear().draw();
 				deliverynotetable.rows.add( response ).draw();
@@ -810,6 +811,7 @@ function deliverydaybycustomerid(CustomersId){
 		},
 		success:function(response) {
 				//alert(JSON.stringify(response));
+				//console.log(JSON.stringify(response));
 
 				if(response.length>0){
 
@@ -996,7 +998,7 @@ if(val>-1){
 	    	el.Quantity=val;
 
 
-	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price));
+	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price)).toFixed(2);
 	    	el.TotalAmount=total;
 	    	
 	    	return true;
@@ -1037,7 +1039,7 @@ if(val>-1){
 	    if((parseInt(el.ProductsId) == parseInt(data.ProductsId))){
 
 	    	el.Extra=val;
-	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price));
+	    	total=parseFloat(((el.Quantity+el.Extra))*(el.Price)).toFixed(2);
 	    	el.TotalAmount=total;
 	    	return true;
 	    }
@@ -1197,12 +1199,13 @@ $(document).on("click", "#deliverynotesavebtn", function(){
 						function( response ) {
 
 						    console.log(">>done<<");
+						    var invoiceID=response;
 
 						    //alert(JSON.stringify(quantitylistarray));
 
 						    customeridd=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
-						    deliverynotepdfcustomerinforequest();
-
+						    //deliverynotepdfcustomerinforequest();
+						    deliverynotepdf(customeridd,invoiceID);
 							//productlistbycustomerid(customeridd);
 							productlistandpredeliveryallbycustomerid(customeridd);
 							productstocklistbycustomerid(customeridd);
@@ -1303,8 +1306,11 @@ $(document).on("click", "#deliverynoteprintbtn", function(){
 	//alert(JSON.stringify(quantitylistarray));
 	//console.log(JSON.stringify(quantitylistarray));	
 
-deliverynotepdfcustomerinforequest();
-	//deliverynotepdf(5);
+//deliverynotepdfcustomerinforequest();
+
+//CustomersId=parseInt($("#tabs-1 #customeroption option:selected").attr("value"));
+//alert(JSON.stringify(CustomersId));
+//deliverynotepdf(CustomersId);
 
 
 
@@ -1335,7 +1341,7 @@ function deliverynotepdfcustomerinforequest(){
 			"CustomersId":CustomersId
 		},
 		success:function(response) {
-				//alert(JSON.stringify(response));
+				alert(JSON.stringify(response));
 				deliverynotepdf(response);
 
 
@@ -1369,14 +1375,16 @@ function deliverynotepdfcustomerinforequest(){
 
 
 
-function deliverynotepdf(customersinfo){
+function deliverynotepdf(CustomersId,InvoiceId){
+	alert(JSON.stringify(CustomersId));
+	alert(JSON.stringify(InvoiceId));
 
 		var deliverynotedate=$("#tabs-1 #deliverynotedate").datepicker( "getDate" );
 		deliverynotedate=moment(deliverynotedate).format("YYYY-MM-DD");
 		var totalallamount=totalcountfromarray();
 		
 		//alert(JSON.stringify(quantitylistarray));
-		console.log(JSON.stringify(quantitylistarray));
+		//console.log(JSON.stringify(quantitylistarray));
 		//alert(JSON.stringify(totalallamount));
 
 		var sum=0;
@@ -1385,27 +1393,34 @@ function deliverynotepdf(customersinfo){
 			sum=sum+quantitylistarray[i].Extra;
 			sum=sum+quantitylistarray[i].Damage;
 		}
-				
+		//alert(JSON.stringify(CustomersId));	
 //return;
 	 var mapForm = document.createElement("form");
 	   // mapForm.target = "Map";
 	   	mapForm.class = "deleteKorteHobe";
 	   	mapForm.type = "hidden";
 	    mapForm.target = "Map";
+	    //mapForm.method = "GET"; // or "post" if appropriate
 	    mapForm.method = "GET"; // or "post" if appropriate
 	    mapForm.action = "deleverynotepdf";
 	    //mapForm.action = "http://localhost/appointment/wp-content/plugins/first-plugin/mpdf/my.php";
 
-	    var mapInput = document.createElement("input");
+	    /*var mapInput = document.createElement("input");
 	    mapInput.type = "text";
 	    mapInput.name = "quantitylistarray";
 	    mapInput.value = JSON.stringify(quantitylistarray, null, 2);;
 	    mapForm.appendChild(mapInput);
+*/
+	    var mapInput = document.createElement("input");
+	    mapInput.type = "text";
+	    mapInput.name = "CustomersId";
+	    mapInput.value = CustomersId;
+	    mapForm.appendChild(mapInput);
 
 	    var mapInput = document.createElement("input");
 	    mapInput.type = "text";
-	    mapInput.name = "customersinfo";
-	    mapInput.value = JSON.stringify(customersinfo, null, 2);;
+	    mapInput.name = "InvoiceId";
+	    mapInput.value = InvoiceId;
 	    mapForm.appendChild(mapInput);
 
 
@@ -1761,7 +1776,7 @@ $('#deliverynotetable').on('keydown', 'input.changeLocation', function(e) {
 
 
 
-    if (e.keyCode == 13||e.keyCode==40) { //down
+    if (e.which == 13||e.keyCode == 13||e.keyCode==40) { //down
 
 
 	    var next_clm= present_clm;

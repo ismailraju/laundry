@@ -425,7 +425,9 @@ var itemlisttable1=$('#itemMastermodal #itemlisttable').DataTable( {
 	            
 	            { "data": "ItemId"},
 	            { "data": "ItemName"},
-	            { "data": "AveragePrice"},
+	            { "data": "AveragePrice",
+	        	"mRender": $.fn.dataTable.render.number( ',', '.', 2, '£' ) 
+	    		},
 	            { "data": "ItemCategoryId"},
 	            { "data": "ItemUnitId"},
 	            { "data": "InitialQty"},

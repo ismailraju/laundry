@@ -193,49 +193,51 @@ $(document).on("click", "#statementbycustomerPrintBtn", function(){
 		
 		//alert(customeridd+" "+statementbycustomerdateStart+" "+statementbycustomerdateEnd);
 
-		$.ajax({
-			url:"statement_by_customer_Genarate",
-			type:'POST',
-			dataType: "json",
-			//dataType: "Array",
-			data:{
+		statementByCustomerpdf_(customeridd, statementbycustomerdateStart, statementbycustomerdateEnd);
 
-				"customeridd"					:customeridd,
-				"statementbycustomerdateStart"	:statementbycustomerdateStart,
-				"statementbycustomerdateEnd"	:statementbycustomerdateEnd
-			},
-			success:function(response) {
+		// $.ajax({
+		// 	url:"statement_by_customer_Genarate",
+		// 	type:'POST',
+		// 	dataType: "json",
+		// 	//dataType: "Array",
+		// 	data:{
 
-					//console.log(JSON.stringify(response));
-					//alert(JSON.stringify(response));
+		// 		"customeridd"					:customeridd,
+		// 		"statementbycustomerdateStart"	:statementbycustomerdateStart,
+		// 		"statementbycustomerdateEnd"	:statementbycustomerdateEnd
+		// 	},
+		// 	success:function(response) {
 
-					statementByCustomerpdfcustomerinforequest( response[0] );
+		// 			//console.log(JSON.stringify(response));
+		// 			//alert(JSON.stringify(response));
 
-					}
+		// 			statementByCustomerpdfcustomerinforequest( response[0] );
 
-		})
-		.done(
-			function( response ) {
+		// 			}
 
-			    console.log(">>done<<");
+		// })
+		// .done(
+		// 	function( response ) {
+
+		// 	    console.log(">>done<<");
 
 
 			    
-		})
+		// })
 	  
-	  	.fail(
-	  			function( xhr, status, errorThrown ) {
-				    alert( "Sorry, there was a problem!" );
-				    console.log( "Error: " + errorThrown );
-				    console.log( "Status: " + status );
-				    console.dir( xhr );
-		})
+	 //  	.fail(
+	 //  			function( xhr, status, errorThrown ) {
+		// 		    alert( "Sorry, there was a problem!" );
+		// 		    console.log( "Error: " + errorThrown );
+		// 		    console.log( "Status: " + status );
+		// 		    console.dir( xhr );
+		// })
 	  
-	  	.always(
-	  			function( xhr, status ) {
-	  				console.log(">>always<<");
+	 //  	.always(
+	 //  			function( xhr, status ) {
+	 //  				console.log(">>always<<");
 	  	
-		});
+		// });
 
 
 
@@ -299,7 +301,7 @@ function statementByCustomerpdfcustomerinforequest( invoiceslistarray ){
 
 
 
-function statementByCustomerpdf_( invoiceslistarray, customersinfo){
+function statementByCustomerpdf_(customeridd, statementbycustomerdateStart, statementbycustomerdateEnd){
 
 
 	 //alert('statementByCustomerpdf_()');
@@ -316,14 +318,20 @@ function statementByCustomerpdf_( invoiceslistarray, customersinfo){
 
 	    var mapInput = document.createElement("input");
 	    mapInput.type = "text";
-	    mapInput.name = "invoiceslistarray";
-	    mapInput.value = JSON.stringify(invoiceslistarray, null, 2);;
+	    mapInput.name = "customeridd";
+	    mapInput.value = customeridd;
 	    mapForm.appendChild(mapInput);
 
 	    var mapInput = document.createElement("input");
 	    mapInput.type = "text";
-	    mapInput.name = "customersinfo";
-	    mapInput.value = JSON.stringify(customersinfo, null, 2);;
+	    mapInput.name = "Start";
+	    mapInput.value = statementbycustomerdateStart;
+	    mapForm.appendChild(mapInput);
+	    
+	    var mapInput = document.createElement("input");
+	    mapInput.type = "text";
+	    mapInput.name = "End";
+	    mapInput.value = statementbycustomerdateEnd;
 	    mapForm.appendChild(mapInput);
 
 

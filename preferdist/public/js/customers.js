@@ -440,8 +440,12 @@ $(document).on("click","#customerMastermodal .delete_customer",function(){
 	var CustomersId=parseInt(data.CustomersId);
 	
 	//alert(CustomersId);
+	if(confirm("Are you sure?")){
 
-	deletecustomer(data.CustomersId,data.CustomerName);
+		deletecustomer(data.CustomersId,data.CustomerName);
+
+	}
+
 });
 
 

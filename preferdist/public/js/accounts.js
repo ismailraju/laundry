@@ -331,7 +331,7 @@ function updatenewtaxtable(TaxId,column,value) {
 
     	newtaxtable.rows().nodes().to$(TaxId).addClass('selected' );
 
-
+    	refresh_Tax_option();
     });
 
         
@@ -680,7 +680,7 @@ function updatenewnominaltable(NominalId,column,value) {
 
     	newnominaltable.rows().nodes().to$(NominalId).addClass('selected' );
 
-
+		refresh_Nominal_option();
     });
 
         

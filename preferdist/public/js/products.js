@@ -205,7 +205,9 @@ var productslisttable=$('#productsMastermodal #productslisttable').DataTable( {
 	            
 	            { "data": "ProductsId"},
 	            { "data": "ProductName"},
-	            { "data": "Price"},
+	            { "data": "Price",
+	        		"mRender": $.fn.dataTable.render.number( ',', '.', 2, '£' ) 
+	        	},
 	            { "data": "CustomersId"},
 	            { "data": "Active"},
 	            { "data": "ItemId"},
@@ -433,59 +435,68 @@ $(document).on("click",".delete_product",function(){
 	var data = productslisttable.row( $(this).parents('tr') ).data();
 
 	//alert(JSON.stringify(data));
+	if (confirm("Are you sure?")) {
+
+
+
+			$.ajax({
+				url:"delete_single_product",
+				type:'POST',
+				dataType: "json",
+				//dataType: "Array",
+				data:{
+
+					"ProductsId":data.ProductsId,
+
+
+				},
+				success:function(response) {
+						//alert(JSON.stringify(response));
+
+
+						if(response=="done"){
+
+							toastr.success('Successfully deleted \n');
+
+							customeridd=parseInt($("#productsMastermodal #CustomersName option:selected").attr("value"));
+							productlistbycustomerid(customeridd); 
+
+						}else {
+
+							toastr.error('Deletion failed \n');
+							
+						}
+					}
+
+				})
+				.done(
+					function( response1 ) {
+
+					    console.log(">>done<<");
+			
+				})
+			  
+			  	.fail(
+			  			function( xhr, status, errorThrown ) {
+						    alert( "Sorry, there was a problem!" );
+						    console.log( "Error: " + errorThrown );
+						    console.log( "Status: " + status );
+						    console.dir( xhr );
+				})
+			  
+			  	.always(
+			  			function( xhr, status ) {
+			  				console.log(">>always<<");
+			  	
+				});
+
+
+
+
+
+	}
 	
-	$.ajax({
-		url:"delete_single_product",
-		type:'POST',
-		dataType: "json",
-		//dataType: "Array",
-		data:{
-
-			"ProductsId":data.ProductsId,
-
-
-		},
-		success:function(response) {
-				//alert(JSON.stringify(response));
-
-
-				if(response=="done"){
-
-					toastr.success('Successfully deleted \n');
-
-					customeridd=parseInt($("#productsMastermodal #CustomersName option:selected").attr("value"));
-					productlistbycustomerid(customeridd); 
-
-				}else {
-
-					toastr.error('Deletion failed \n');
-					
-				}
-			}
-
-		})
-		.done(
-			function( response1 ) {
-
-			    console.log(">>done<<");
 	
-		})
-	  
-	  	.fail(
-	  			function( xhr, status, errorThrown ) {
-				    alert( "Sorry, there was a problem!" );
-				    console.log( "Error: " + errorThrown );
-				    console.log( "Status: " + status );
-				    console.dir( xhr );
-		})
-	  
-	  	.always(
-	  			function( xhr, status ) {
-	  				console.log(">>always<<");
-	  	
-		});
-
-
 
 
 });

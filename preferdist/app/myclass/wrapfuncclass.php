@@ -65,6 +65,7 @@ class wrapfuncclass
 		//var_dump($arr.length);
 		$str="";
 
+
 		foreach ($arr as $k=>$r){
 			$str=$str."<option ";
 			//var_dump($r->TaxCode);
@@ -78,13 +79,21 @@ class wrapfuncclass
 			}
 
 			$str=$str.">";
+
+
 			for ($i=0; $i <sizeof($displaykey); $i++) { 
 
-				if(($i!=0)&&($r->$displaykey[$i]!="")){$str=$str."-";}
-				$str=$str.$r->$displaykey[$i];
+		//return json_encode($r->{$displaykey[$i]}) ;
+
+				if(($i!=0)&&($r->{$displaykey[$i]}!="")){$str=$str."-";}
+				$str=$str.$r->{$displaykey[$i]};
+
+
 			}
 			
 			$str=$str."</option >";
+
+
 		}
 
 		

@@ -24,15 +24,18 @@ class QueryController extends Controller
 
      public function taxcodeoption(){
 
+
       	//$qu = new queryclass();
       	$wrap= new wrapfuncclass();
      
-			
+		
 
 		$texinfo = DB::select('select * from tax');
 		json_encode($texinfo);
 		//return $wrap->w();
 		$arrayName = array("TaxCode","Description");
+		//return $wrap->w();
+
 		return $wrap->optionwrap_value_multi_display(json_encode($texinfo),$arrayName,"TaxId");
 		//return $wrap->optionwrap_value(json_encode($texinfo),"TaxCode","TaxId");
 

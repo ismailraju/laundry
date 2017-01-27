@@ -3,3 +3,8 @@
 	position: relative; 
 	z-index: 10;
 }
+
+
+#statementbycustomertable_wrapper td{
+	text-align: center;
+}
